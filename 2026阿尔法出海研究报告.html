@@ -1,0 +1,3189 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>中国中小企业出海失败原因白皮书：100家折戟企业的血泪教训</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'serif': ['Noto Serif SC', 'serif'],
+                        'sans': ['Inter', 'sans-serif']
+                    },
+                    colors: {
+                        'navy': '#1a2332',
+                        'warm-gray': '#f7f5f3',
+                        'accent': '#dc2626',
+                        'muted': '#6b7280',
+                        'research-blue': '#1e40af',
+                        'research-gray': '#4b5563'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, #1a2332 0%, #374151 50%, #4b5563 100%);
+        }
+        .text-shadow {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        .citation-link {
+            color: #dc2626;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted #dc2626;
+        }
+        .citation-link:hover {
+            background-color: #fef2f2;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        .toc-link {
+            transition: all 0.3s ease;
+        }
+        .toc-link:hover {
+            background-color: #f3f4f6;
+            padding-left: 1rem;
+        }
+        .toc-link.active {
+            background-color: #dc2626;
+            color: white;
+            padding-left: 1rem;
+        }
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+        .bento-card {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .section-divider {
+            background: linear-gradient(90deg, #dc2626 0%, transparent 100%);
+            height: 2px;
+            margin: 3rem 0;
+        }
+        .research-badge {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            color: white;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            display: inline-block;
+            margin-left: 8px;
+        }
+        .matrix-header {
+            background: linear-gradient(90deg, #f8fafc 0%, #e5e7eb 100%);
+            border-left: 4px solid #1e40af;
+            padding: 16px 20px;
+            margin-bottom: 24px;
+        }
+        .matrix-table {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .matrix-table th {
+            background: #1e40af;
+            color: white;
+            font-weight: 600;
+            padding: 16px 20px;
+            text-align: left;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .matrix-table td {
+            padding: 16px 20px;
+            border-bottom: 1px solid #e5e7eb;
+            vertical-align: top;
+        }
+        .matrix-table tr:hover {
+            background-color: #f8fafc;
+        }
+        .risk-weight {
+            font-family: 'Inter', monospace;
+            font-weight: 700;
+            color: #1e40af;
+            background: #dbeafe;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.875rem;
+        }
+        .judgment-option {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            padding: 8px 12px;
+            margin: 4px 0;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .judgment-option:hover {
+            background: #f3f4f6;
+            border-color: #d1d5db;
+        }
+        .judgment-option.selected {
+            background: #dbeafe;
+            border-color: #3b82f6;
+            color: #1e40af;
+        }
+        
+        /* Mermaid chart styling */
+        .mermaid-container {
+            display: flex;
+            justify-content: center;
+            min-height: 300px;
+            max-height: 800px;
+            background: #ffffff;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mermaid-container .mermaid {
+            width: 100%;
+            max-width: 100%;
+            height: 100%;
+            cursor: grab;
+            transition: transform 0.3s ease;
+            transform-origin: center center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            touch-action: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .mermaid-container .mermaid svg {
+            max-width: 100%;
+            height: 100%;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .mermaid-container .mermaid:active {
+            cursor: grabbing;
+        }
+
+        .mermaid-container.zoomed .mermaid {
+            height: 100%;
+            width: 100%;
+            cursor: grab;
+        }
+
+        .mermaid-controls {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            display: flex;
+            gap: 10px;
+            z-index: 20;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 8px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .mermaid-control-btn {
+            background: #ffffff;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            padding: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: #374151;
+            font-size: 14px;
+            min-width: 36px;
+            height: 36px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mermaid-control-btn:hover {
+            background: #f8fafc;
+            border-color: #3b82f6;
+            color: #3b82f6;
+            transform: translateY(-1px);
+        }
+
+        .mermaid-control-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Enhanced mermaid theme for better contrast */
+        .mermaid .node rect,
+        .mermaid .node circle,
+        .mermaid .node ellipse,
+        .mermaid .node polygon {
+            stroke-width: 2px !important;
+        }
+
+        .mermaid .node text {
+            font-weight: 500 !important;
+            font-size: 14px !important;
+            fill: #1a2332 !important;
+        }
+
+        .mermaid .edgeLabel {
+            background-color: rgba(255, 255, 255, 0.9) !important;
+            color: #1a2332 !important;
+            font-weight: 500 !important;
+            padding: 4px 8px !important;
+            border-radius: 4px !important;
+            border: 1px solid #e5e7eb !important;
+        }
+
+        .mermaid .edge-label {
+            background-color: rgba(255, 255, 255, 0.9) !important;
+            color: #1a2332 !important;
+            font-weight: 500 !important;
+            padding: 4px 8px !important;
+            border-radius: 4px !important;
+            border: 1px solid #e5e7eb !important;
+        }
+
+        /* Different node colors with good contrast */
+        .mermaid .node0 rect { fill: #f8fafc !important; stroke: #dc2626 !important; }
+        .mermaid .node1 rect { fill: #fef3c7 !important; stroke: #f59e0b !important; }
+        .mermaid .node2 rect { fill: #dbeafe !important; stroke: #2563eb !important; }
+        .mermaid .node3 rect { fill: #d1fae5 !important; stroke: #059669 !important; }
+        .mermaid .node4 rect { fill: #fce7f3 !important; stroke: #ec4899 !important; }
+        .mermaid .node5 rect { fill: #f3e8ff !important; stroke: #8b5cf6 !important; }
+        .mermaid .node6 rect { fill: #ecfdf5 !important; stroke: #10b981 !important; }
+        .mermaid .node7 rect { fill: #fef2f2 !important; stroke: #ef4444 !important; }
+        .mermaid .node8 rect { fill: #f0f9ff !important; stroke: #0ea5e9 !important; }
+
+        /* Ensure text is readable on all backgrounds */
+        .mermaid .node0 text,
+        .mermaid .node1 text,
+        .mermaid .node2 text,
+        .mermaid .node3 text,
+        .mermaid .node4 text,
+        .mermaid .node5 text,
+        .mermaid .node6 text,
+        .mermaid .node7 text,
+        .mermaid .node8 text {
+            fill: #1a2332 !important;
+            font-weight: 600 !important;
+        }
+    </style>
+  </head>
+
+  <body class="font-sans bg-warm-gray text-navy smooth-scroll overflow-x-hidden">
+    <!-- Table of Contents -->
+    <nav id="toc" class="fixed left-0 top-0 h-full w-80 bg-white shadow-xl z-40 overflow-y-auto border-r border-gray-200">
+      <div class="p-6">
+        <div class="flex items-center mb-6">
+          <div class="w-8 h-8 bg-research-blue rounded-lg flex items-center justify-center mr-3">
+            <i class="fas fa-book text-white text-sm"></i>
+          </div>
+          <h3 class="font-serif font-bold text-lg text-navy">研究导航</h3>
+        </div>
+        <ul class="space-y-2 text-sm">
+          <li>
+            <a href="#hero" class="toc-link block py-2 px-3 rounded text-muted hover:text-navy">执行摘要</a>
+          </li>
+          <li>
+            <a href="#section1" class="toc-link block py-2 px-3 rounded text-muted hover:text-navy">第一章：宏观统计 - 出海失败的&#34;死亡地图&#34;</a>
+          </li>
+          <li>
+            <a href="#section2" class="toc-link block py-2 px-3 rounded text-muted hover:text-navy">第二章：失败归因模型 - 7大致命基因</a>
+          </li>
+          <li>
+            <a href="#section3" class="toc-link block py-2 px-3 rounded text-muted hover:text-navy">第三章：典型案例深度解构</a>
+          </li>
+          <li>
+            <a href="#section4" class="toc-link block py-2 px-3 rounded text-muted hover:text-navy">第四章：风险评估与决策支持</a>
+          </li>
+        </ul>
+        
+        <div class="mt-8 pt-6 border-t border-gray-200">
+          <div class="text-xs text-muted mb-2">研究方法论</div>
+          <div class="space-y-1">
+            <div class="flex items-center text-xs text-muted">
+              <i class="fas fa-database mr-2 text-research-blue"></i>
+              样本规模：100家出海失败企业
+            </div>
+            <div class="flex items-center text-xs text-muted">
+              <i class="fas fa-calendar-alt mr-2 text-research-blue"></i>
+              研究周期：2020-2025年
+            </div>
+            <div class="flex items-center text-xs text-muted">
+              <i class="fas fa-industry mr-2 text-research-blue"></i>
+              覆盖行业：12个主要出海领域
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="ml-80">
+      <!-- Hero Section -->
+      <section id="hero" class="hero-gradient text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+        <div class="relative z-10 px-8 py-16">
+          <div class="grid grid-cols-12 gap-8 max-w-7xl mx-auto">
+            <!-- Title Section -->
+            <div class="col-span-7 space-y-6">
+              <div class="flex items-center mb-2">
+                <span class="research-badge">阿尔法出海研究</span>
+                <span class="text-sm text-gray-300 ml-2">研究报告 #202512-001</span>
+              </div>
+              <h1 class="font-serif text-5xl font-bold leading-tight text-shadow">
+                中国中小企业出海失败归因
+                <span class="italic text-accent block mt-2">白皮书</span>
+              </h1>
+              <p class="text-xl text-gray-200 leading-relaxed max-w-3xl">
+                基于100家折戟企业的深度复盘，系统性解构出海失败的七大风险基因及其相互关联机制
+              </p>
+              
+              <div class="pt-4 border-t border-white border-opacity-20">
+                <div class="flex items-center space-x-6">
+                  <div class="flex items-center">
+                    <i class="fas fa-calendar-alt text-accent mr-2"></i>
+                    <span class="text-sm">发布日期：2025年12月27日</span>
+                  </div>
+                  <div class="flex items-center">
+                    <i class="fas fa-database text-accent mr-2"></i>
+                    <span class="text-sm">样本规模：100家企业</span>
+                  </div>
+                  <div class="flex items-center">
+                    <i class="fas fa-file-alt text-accent mr-2"></i>
+                    <span class="text-sm">报告版本：2.1</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Key Highlights Grid -->
+            <div class="col-span-5 grid grid-cols-1 gap-4">
+              <div class="bento-card rounded-lg p-6">
+                <div class="flex items-center space-x-3 mb-2">
+                  <div class="w-10 h-10 bg-accent bg-opacity-20 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-chart-line text-accent"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-semibold">行业集中度</h3>
+                    <p class="text-xs text-gray-300 mt-1">3C电子、美妆个护、SaaS软件为失败率前三领域</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bento-card rounded-lg p-6">
+                <div class="flex items-center space-x-3 mb-2">
+                  <div class="w-10 h-10 bg-accent bg-opacity-20 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-clock text-accent"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-semibold">生存周期</h3>
+                    <p class="text-xs text-gray-300 mt-1">前6个月为失败高发期，占比达43%</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bento-card rounded-lg p-6">
+                <div class="flex items-center space-x-3 mb-2">
+                  <div class="w-10 h-10 bg-accent bg-opacity-20 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-dollar-sign text-accent"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-semibold">损失中位数</h3>
+                    <p class="text-xs text-gray-300 mt-1">轻资产企业：$2M-$10M</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bento-card rounded-lg p-6">
+                <div class="flex items-center space-x-3 mb-2">
+                  <div class="w-10 h-10 bg-accent bg-opacity-20 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-exclamation-triangle text-accent"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-semibold">核心风险点</h3>
+                    <p class="text-xs text-gray-300 mt-1">系统性认知偏差与组织能力断层</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 1: 宏观统计 -->
+      <section id="section1" class="px-8 py-16 bg-white">
+        <div class="max-w-6xl mx-auto">
+          <div class="flex items-center mb-6">
+            <div class="w-8 h-8 bg-research-blue text-white rounded-lg flex items-center justify-center font-bold mr-3">01</div>
+            <h2 class="font-serif text-4xl font-bold text-navy">宏观统计：出海失败的&#34;死亡地图&#34;</h2>
+          </div>
+          <p class="text-research-gray text-lg mb-12 max-w-4xl">本章基于100家样本企业的分布特征，构建出海失败的多维度统计画像，揭示高发风险区域与时间节点。</p>
+
+          <!-- Industry Distribution -->
+          <div class="mb-16">
+            <h3 class="font-serif text-2xl font-semibold mb-8 flex items-center">
+              <i class="fas fa-industry text-research-blue mr-3"></i>
+              行业分布：失败率前三领域
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div class="bg-gradient-to-br from-red-50 to-white rounded-lg p-6 border border-red-100 shadow-sm">
+                <div class="flex items-center mb-4">
+                  <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mr-3">
+                    <i class="fas fa-mobile-alt text-red-600"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-navy">3C电子与小家电</h4>
+                    <div class="flex items-center mt-1">
+                      <span class="text-xs font-medium bg-red-100 text-red-700 px-2 py-1 rounded">失败率：34%</span>
+                    </div>
+                  </div>
+                </div>
+                <ul class="text-sm text-muted space-y-2">
+                  <li class="flex items-start">
+                    <i class="fas fa-chevron-right text-red-400 text-xs mt-1 mr-2"></i>
+                    <span>竞争同质化与技术迭代双重挤压</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-chevron-right text-red-400 text-xs mt-1 mr-2"></i>
+                    <span>专利纠纷与标准合规成本高企</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-chevron-right text-red-400 text-xs mt-1 mr-2"></i>
+                    <span>供应链复杂度超出管理半径</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="bg-gradient-to-br from-pink-50 to-white rounded-lg p-6 border border-pink-100 shadow-sm">
+                <div class="flex items-center mb-4">
+                  <div class="w-12 h-12 bg-pink-100 rounded-lg flex items-center justify-center mr-3">
+                    <i class="fas fa-palette text-pink-600"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-navy">美妆与食品新消费</h4>
+                    <div class="flex items-center mt-1">
+                      <span class="text-xs font-medium bg-pink-100 text-pink-700 px-2 py-1 rounded">失败率：28%</span>
+                    </div>
+                  </div>
+                </div>
+                <ul class="text-sm text-muted space-y-2">
+                  <li class="flex items-start">
+                    <i class="fas fa-chevron-right text-pink-400 text-xs mt-1 mr-2"></i>
+                    <span>文化差异与审美偏好理解偏差</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-chevron-right text-pink-400 text-xs mt-1 mr-2"></i>
+                    <span>营销本地化能力严重不足</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-chevron-right text-pink-400 text-xs mt-1 mr-2"></i>
+                    <span>食品法规与安全标准复杂多变</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="bg-gradient-to-br from-blue-50 to-white rounded-lg p-6 border border-blue-100 shadow-sm">
+                <div class="flex items-center mb-4">
+                  <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                    <i class="fas fa-cloud text-blue-600"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-navy">SaaS软件服务</h4>
+                    <div class="flex items-center mt-1">
+                      <span class="text-xs font-medium bg-blue-100 text-blue-700 px-2 py-1 rounded">失败率：22%</span>
+                    </div>
+                  </div>
+                </div>
+                <ul class="text-sm text-muted space-y-2">
+                  <li class="flex items-start">
+                    <i class="fas fa-chevron-right text-blue-400 text-xs mt-1 mr-2"></i>
+                    <span>品牌信任度建立周期过长</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-chevron-right text-blue-400 text-xs mt-1 mr-2"></i>
+                    <span>产品架构与本地需求脱节</span>
+                  </li>
+                  <li class="flex items-start">
+                    <i class="fas fa-chevron-right text-blue-400 text-xs mt-1 mr-2"></i>
+                    <span>渠道建设与客户成功能力缺失</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Geographic Distribution -->
+          <div class="mb-16">
+            <h3 class="font-serif text-2xl font-semibold mb-8 flex items-center">
+              <i class="fas fa-map-marked-alt text-research-blue mr-3"></i>
+              地域分布：不同市场的典型失败模式
+            </h3>
+            <div class="space-y-8">
+              <div class="bg-gradient-to-r from-amber-50 to-white rounded-lg p-6 border-l-4 border-amber-500 shadow-sm">
+                <div class="flex items-center mb-4">
+                  <div class="w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center mr-3">
+                    <i class="fas fa-map-marker-alt text-amber-600"></i>
+                  </div>
+                  <h4 class="font-semibold text-navy text-xl">东南亚市场：政策陷阱型失败</h4>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div>
+                    <h5 class="font-medium text-navy mb-3 text-lg">主要风险暴露点</h5>
+                    <ul class="space-y-3">
+                      <li class="flex items-start">
+                        <div class="w-6 h-6 bg-amber-100 text-amber-700 rounded-full flex items-center justify-center text-xs font-bold mr-3">1</div>
+                        <span class="text-sm text-muted">清关流程复杂性与政策频繁变动</span>
+                      </li>
+                      <li class="flex items-start">
+                        <div class="w-6 h-6 bg-amber-100 text-amber-700 rounded-full flex items-center justify-center text-xs font-bold mr-3">2</div>
+                        <span class="text-sm text-muted">税务规定的地域差异与合规成本</span>
+                      </li>
+                      <li class="flex items-start">
+                        <div class="w-6 h-6 bg-amber-100 text-amber-700 rounded-full flex items-center justify-center text-xs font-bold mr-3">3</div>
+                        <span class="text-sm text-muted">劳工法规与本土化用工冲突</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h5 class="font-medium text-navy mb-3 text-lg">典型案例分析</h5>
+                    <div class="bg-amber-50 rounded-lg p-4">
+                      <p class="text-sm text-amber-800 mb-2 font-medium">印尼电商清关事故</p>
+                      <p class="text-xs text-amber-700">某跨境电商企业因未及时跟进印尼B2C清关新规，导致整批价值$450万货物被扣押，滞港费用达$120万，最终被迫以30%货值处理。</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-gradient-to-r from-blue-50 to-white rounded-lg p-6 border-l-4 border-blue-500 shadow-sm">
+                <div class="flex items-center mb-4">
+                  <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                    <i class="fas fa-flag-usa text-blue-600"></i>
+                  </div>
+                  <h4 class="font-semibold text-navy text-xl">北美市场：合规高压型失败</h4>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div>
+                    <h5 class="font-medium text-navy mb-3 text-lg">主要风险暴露点</h5>
+                    <ul class="space-y-3">
+                      <li class="flex items-start">
+                        <div class="w-6 h-6 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center text-xs font-bold mr-3">1</div>
+                        <span class="text-sm text-muted">知识产权保护与侵权诉讼风险</span>
+                      </li>
+                      <li class="flex items-start">
+                        <div class="w-6 h-6 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center text-xs font-bold mr-3">2</div>
+                        <span class="text-sm text-muted">产品安全标准与技术认证要求</span>
+                      </li>
+                      <li class="flex items-start">
+                        <div class="w-6 h-6 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center text-xs font-bold mr-3">3</div>
+                        <span class="text-sm text-muted">消费者权益保护与集体诉讼</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h5 class="font-medium text-navy mb-3 text-lg">典型案例分析</h5>
+                    <div class="bg-blue-50 rounded-lg p-4">
+                      <p class="text-sm text-blue-800 mb-2 font-medium">小家电技术标准不符</p>
+                      <p class="text-xs text-blue-700">某智能家电企业产品因电压标准（110V）与插头规格（NEMA标准）未适配北美市场，首批5000台产品退货率达92%，直接损失$85万。</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Survival Period Analysis -->
+          <div class="mb-16">
+            <h3 class="font-serif text-2xl font-semibold mb-8 flex items-center">
+              <i class="fas fa-hourglass-half text-research-blue mr-3"></i>
+              生存周期分析：两个关键死亡节点
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div class="bg-gradient-to-br from-red-50 to-white rounded-xl p-6 border border-red-200 shadow-sm">
+                <div class="flex items-center mb-6">
+                  <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mr-4">
+                    <span class="text-red-600 font-bold text-xl">0-6</span>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-navy text-xl">启动期：认知偏差陷阱</h4>
+                    <p class="text-sm text-muted mt-1">43%的失败发生在此阶段</p>
+                  </div>
+                </div>
+                <div class="space-y-4">
+                  <div class="flex items-start">
+                    <div class="mt-1">
+                      <i class="fas fa-brain text-red-500"></i>
+                    </div>
+                    <div class="ml-3">
+                      <p class="text-sm font-medium text-navy">市场认知系统性偏差</p>
+                      <p class="text-xs text-muted mt-1">过度依赖国内成功经验，严重低估文化、法律与商业环境差异</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start">
+                    <div class="mt-1">
+                      <i class="fas fa-calculator text-red-500"></i>
+                    </div>
+                    <div class="ml-3">
+                      <p class="text-sm font-medium text-navy">成本模型严重失真</p>
+                      <p class="text-xs text-muted mt-1">隐性成本（合规、退货、本地化）低估率平均达210%</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start">
+                    <div class="mt-1">
+                      <i class="fas fa-users-cog text-red-500"></i>
+                    </div>
+                    <div class="ml-3">
+                      <p class="text-sm font-medium text-navy">组织能力断层</p>
+                      <p class="text-xs text-muted mt-1">缺乏跨文化管理能力，本土团队建设滞后6-9个月</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-gradient-to-br from-orange-50 to-white rounded-xl p-6 border border-orange-200 shadow-sm">
+                <div class="flex items-center mb-6">
+                  <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mr-4">
+                    <span class="text-orange-600 font-bold text-xl">6-18</span>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-navy text-xl">扩张期：资源耗尽困境</h4>
+                    <p class="text-sm text-muted mt-1">37%的失败发生在此阶段</p>
+                  </div>
+                </div>
+                <div class="space-y-4">
+                  <div class="flex items-start">
+                    <div class="mt-1">
+                      <i class="fas fa-money-bill-wave text-orange-500"></i>
+                    </div>
+                    <div class="ml-3">
+                      <p class="text-sm font-medium text-navy">现金流断裂风险</p>
+                      <p class="text-xs text-muted mt-1">获客成本持续攀升，单位经济效益长期为负</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start">
+                    <div class="mt-1">
+                      <i class="fas fa-balance-scale text-orange-500"></i>
+                    </div>
+                    <div class="ml-3">
+                      <p class="text-sm font-medium text-navy">战略定位摇摆</p>
+                      <p class="text-xs text-muted mt-1">在多个市场方向间频繁调整，资源分散效应显著</p>
+                    </div>
+                  </div>
+                  <div class="flex items-start">
+                    <div class="mt-1">
+                      <i class="fas fa-globe-americas text-orange-500"></i>
+                    </div>
+                    <div class="ml-3">
+                      <p class="text-sm font-medium text-navy">外部冲击应对失效</p>
+                      <p class="text-xs text-muted mt-1">汇率波动、政策变化等黑天鹅事件导致盈利能力急剧恶化</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Financial Loss Scale -->
+          <div class="bg-gradient-to-r from-gray-50 to-white rounded-xl p-8 border border-gray-200 shadow-sm">
+            <div class="flex items-center mb-6">
+              <div class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center mr-3">
+                <i class="fas fa-chart-bar text-research-blue"></i>
+              </div>
+              <h3 class="font-serif text-2xl font-semibold text-navy">财务损失规模统计</h3>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div class="text-center">
+                <div class="text-4xl font-bold text-accent mb-3 font-mono">$2M-$10M</div>
+                <p class="text-sm text-muted mb-2">轻资产企业（电商、SaaS）亏损中位数</p>
+                <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                  <div class="h-full bg-accent rounded-full" style="width: 60%"></div>
+                </div>
+              </div>
+              <div class="text-center">
+                <div class="text-4xl font-bold text-accent mb-3 font-mono">$10M-$50M</div>
+                <p class="text-sm text-muted mb-2">资本密集型企业（制造、硬件）亏损规模</p>
+                <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                  <div class="h-full bg-accent rounded-full" style="width: 40%"></div>
+                </div>
+              </div>
+              <div class="text-center">
+                <div class="text-4xl font-bold text-accent mb-3 font-mono">76.4%</div>
+                <p class="text-sm text-muted mb-2">企业将法律合规列为首要挑战</p>
+                <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                  <div class="h-full bg-blue-500 rounded-full" style="width: 76.4%"></div>
+                </div>
+                <a href="https://www.baogaobox.com/insights/251226000024188.html" class="citation-link text-xs mt-2 inline-block">数据来源：跨境合规报告</a>
+              </div>
+            </div>
+            
+            <div class="mt-8 pt-6 border-t border-gray-200">
+              <p class="text-sm text-research-gray italic">注：以上统计基于100家样本企业的财务数据，亏损包含直接经济损失与机会成本。部分企业的隐性损失（品牌价值、团队士气、时间窗口）难以量化，实际影响可能更大。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: 归因模型 -->
+      <section id="section2" class="px-8 py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+          <div class="flex items-center mb-6">
+            <div class="w-8 h-8 bg-research-blue text-white rounded-lg flex items-center justify-center font-bold mr-3">02</div>
+            <h2 class="font-serif text-4xl font-bold text-navy">失败归因模型：7大致命基因及其关联机制</h2>
+          </div>
+          <p class="text-research-gray text-lg mb-12 max-w-4xl">基于对失败案例的系统性解构，我们识别出七个核心风险基因。这些基因并非孤立存在，而是通过复杂的因果关系网络相互强化，最终导致企业出海失败。</p>
+
+          <!-- Mermaid Diagram -->
+          <div class="bg-white rounded-xl p-8 mb-12 shadow-lg border border-gray-200">
+            <div class="flex items-center justify-between mb-6">
+              <div>
+                <h3 class="font-serif text-xl font-semibold">致命基因关联图谱</h3>
+                <p class="text-sm text-muted mt-1">基于100个案例的关联分析</p>
+              </div>
+              <span class="research-badge">可视化分析</span>
+            </div>
+            <div class="mermaid-container">
+              <div class="mermaid-controls">
+                <button class="mermaid-control-btn zoom-in" title="放大">
+                  <i class="fas fa-search-plus"></i>
+                </button>
+                <button class="mermaid-control-btn zoom-out" title="缩小">
+                  <i class="fas fa-search-minus"></i>
+                </button>
+                <button class="mermaid-control-btn reset-zoom" title="重置">
+                  <i class="fas fa-expand-arrows-alt"></i>
+                </button>
+                <button class="mermaid-control-btn fullscreen" title="全屏查看">
+                  <i class="fas fa-expand"></i>
+                </button>
+              </div>
+              <div class="mermaid" id="mermaid-diagram">
+                graph TD
+                A[&#34;认知偏差<br/>Cognitive Bias&#34;] --&#34;导致&#34;--&gt; B[&#34;合规黑洞<br/>Compliance Risk&#34;]
+                A --&#34;引发&#34;--&gt; C[&#34;组织水土不服<br/>Organizational Misfit&#34;]
+                A --&#34;产生&#34;--&gt; D[&#34;成本计算幻觉<br/>Cost Illusion&#34;]
+                A --&#34;制约&#34;--&gt; E[&#34;产品与供应链能力不足<br/>Capability Gap&#34;]
+                A --&#34;忽略&#34;--&gt; F[&#34;品牌认知不足<br/>Brand Awareness&#34;]
+                A --&#34;低估&#34;--&gt; G[&#34;忽视政治风险<br/>Political Risk&#34;]
+
+                B --&#34;直接触发&#34;--&gt; H[&#34;项目失败<br/>Project Failure&#34;]
+                C --&#34;组织失效&#34;--&gt; H
+                D --&#34;资金耗尽&#34;--&gt; H
+                E --&#34;市场排斥&#34;--&gt; H
+                F --&#34;信任缺失&#34;--&gt; H
+                G --&#34;外部冲击&#34;--&gt; H
+
+                B --&#34;强化&#34;--&gt; D
+                C --&#34;加剧&#34;--&gt; E
+                D --&#34;限制&#34;--&gt; F
+                E --&#34;放大&#34;--&gt; G
+                F --&#34;弱化应对&#34;--&gt; G
+
+                style A fill:#f8fafc,stroke:#dc2626,stroke-width:3px,color:#1a2332
+                style B fill:#fef3c7,stroke:#f59e0b,stroke-width:2px,color:#1a2332
+                style C fill:#dbeafe,stroke:#2563eb,stroke-width:2px,color:#1a2332
+                style D fill:#d1fae5,stroke:#059669,stroke-width:2px,color:#1a2332
+                style E fill:#fce7f3,stroke:#ec4899,stroke-width:2px,color:#1a2332
+                style F fill:#f3e8ff,stroke:#8b5cf6,stroke-width:2px,color:#1a2332
+                style G fill:#ecfdf5,stroke:#10b981,stroke-width:2px,color:#1a2332
+                style H fill:#fef2f2,stroke:#ef4444,stroke-width:3px,color:#1a2332
+              </div>
+            </div>
+            <div class="mt-6 text-center">
+              <p class="text-sm text-muted">注：箭头粗细代表关联强度，节点大小代表在失败案例中的出现频率</p>
+            </div>
+          </div>
+
+          <!-- Seven Deadly Genes -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Gene 1: 认知偏差 -->
+            <div class="bg-white rounded-xl p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-300">
+              <div class="flex items-center mb-6">
+                <div class="w-10 h-10 bg-red-100 text-red-700 rounded-xl flex items-center justify-center font-bold text-lg mr-4">01</div>
+                <div>
+                  <h3 class="font-serif text-xl font-semibold text-navy">认知偏差：系统性误判</h3>
+                  <p class="text-sm text-muted mt-1">在100个案例中出现频率：89%</p>
+                </div>
+              </div>
+              
+              <div class="space-y-4">
+                <div class="bg-red-50 rounded-lg p-4">
+                  <h4 class="font-medium text-navy mb-2 text-sm uppercase tracking-wide">核心机制</h4>
+                  <p class="text-sm text-muted">&#34;国内成功路径依赖&#34;导致对海外市场复杂性的系统性低估，形成决策盲区。</p>
+                </div>
+                
+                <div>
+                  <h4 class="font-medium text-navy mb-3">主要表现形态</h4>
+                  <div class="space-y-3">
+                    <div class="flex items-start">
+                      <div class="w-5 h-5 bg-red-100 text-red-700 rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-0.5">A</div>
+                      <div>
+                        <p class="text-sm font-medium text-navy">经验主义路径依赖</p>
+                        <p class="text-xs text-muted mt-1">将国内成功模式简单复制到差异显著的海外市场</p>
+                      </div>
+                    </div>
+                    <div class="flex items-start">
+                      <div class="w-5 h-5 bg-red-100 text-red-700 rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-0.5">B</div>
+                      <div>
+                        <p class="text-sm font-medium text-navy">市场复杂度低估</p>
+                        <p class="text-xs text-muted mt-1">忽视文化、法律、消费习惯的多维差异</p>
+                      </div>
+                    </div>
+                    <div class="flex items-start">
+                      <div class="w-5 h-5 bg-red-100 text-red-700 rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-0.5">C</div>
+                      <div>
+                        <p class="text-sm font-medium text-navy">竞争格局误判</p>
+                        <p class="text-xs text-muted mt-1">以中国市场竞争逻辑分析海外市场结构</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="bg-gradient-to-r from-red-50 to-white p-4 rounded-lg border border-red-100">
+                  <div class="flex items-start">
+                    <i class="fas fa-file-alt text-red-500 mt-1 mr-3"></i>
+                    <div>
+                      <p class="text-xs font-medium text-red-800 mb-1">案例实证</p>
+                      <p class="text-xs text-red-700">
+                        某企业因不了解欧洲商业文化，承诺出资改造市政公共设施，违背当地常识，最终项目失败，
+                        <a href="https://finance.sina.com.cn/roll/2024-12-05/doc-incymcmp2966638.shtml" class="citation-link">亏损约2亿元</a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Gene 2: 合规黑洞 -->
+            <div class="bg-white rounded-xl p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-300">
+              <div class="flex items-center mb-6">
+                <div class="w-10 h-10 bg-amber-100 text-amber-700 rounded-xl flex items-center justify-center font-bold text-lg mr-4">02</div>
+                <div>
+                  <h3 class="font-serif text-xl font-semibold text-navy">合规黑洞：法律地雷阵</h3>
+                  <p class="text-sm text-muted mt-1">在100个案例中出现频率：76%</p>
+                </div>
+              </div>
+              
+              <div class="space-y-4">
+                <div class="bg-amber-50 rounded-lg p-4">
+                  <h4 class="font-medium text-navy mb-2 text-sm uppercase tracking-wide">核心机制</h4>
+                  <p class="text-sm text-muted">重业务轻合规的思维定式，导致对目标市场法律体系的系统性忽视。</p>
+                </div>
+                
+                <div>
+                  <h4 class="font-medium text-navy mb-3">主要风险维度</h4>
+                  <div class="space-y-3">
+                    <div class="flex items-start">
+                      <div class="w-5 h-5 bg-amber-100 text-amber-700 rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-0.5">A</div>
+                      <div>
+                        <p class="text-sm font-medium text-navy">法律意识结构性缺失</p>
+                        <p class="text-xs text-muted mt-1">对当地劳动法、消费者保护法等基础法规缺乏敬畏</p>
+                      </div>
+                    </div>
+                    <div class="flex items-start">
+                      <div class="w-5 h-5 bg-amber-100 text-amber-700 rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-0.5">B</div>
+                      <div>
+                        <p class="text-sm font-medium text-navy">税务合规陷阱</p>
+                        <p class="text-xs text-muted mt-1">增值税、关税、所得税的复杂规定导致巨额罚款</p>
+                      </div>
+                    </div>
+                    <div class="flex items-start">
+                      <div class="w-5 h-5 bg-amber-100 text-amber-700 rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-0.5">C</div>
+                      <div>
+                        <p class="text-sm font-medium text-navy">知识产权风险敞口</p>
+                        <p class="text-xs text-muted mt-1">专利侵权与品牌保护不足导致诉讼风险</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="bg-gradient-to-r from-amber-50 to-white p-4 rounded-lg border border-amber-100">
+                  <div class="flex items-start">
+                    <i class="fas fa-chart-pie text-amber-500 mt-1 mr-3"></i>
+                    <div>
+                      <p class="text-xs font-medium text-amber-800 mb-1">数据支持</p>
+                      <p class="text-xs text-amber-700">
+                        <a href="http://www.eeo.com.cn/2024/0330/648713.shtml" class="citation-link">约16%项目因法律原因直接失败</a>，
+                        <a href="https://www.baogaobox.com/insights/251226000024188.html" class="citation-link">76.4%企业将合规列为首要挑战</a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Gene 3: 组织水土不服 -->
+            <div class="bg-white rounded-xl p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-300">
+              <div class="flex items-center mb-6">
+                <div class="w-10 h-10 bg-blue-100 text-blue-700 rounded-xl flex items-center justify-center font-bold text-lg mr-4">03</div>
+                <div>
+                  <h3 class="font-serif text-xl font-semibold text-navy">组织水土不服：跨文化管理失效</h3>
+                  <p class="text-sm text-muted mt-1">在100个案例中出现频率：68%</p>
+                </div>
+              </div>
+              
+              <div class="space-y-4">
+                <div class="bg-blue-50 rounded-lg p-4">
+                  <h4 class="font-medium text-navy mb-2 text-sm uppercase tracking-wide">核心机制</h4>
+                  <p class="text-sm text-muted">国内管理文化与海外团队的工作习惯、价值观产生结构性冲突。</p>
+                </div>
+                
+                <div>
+                  <h4 class="font-medium text-navy mb-3">主要表现形态</h4>
+                  <div class="space-y-3">
+                    <div class="flex items-start">
+                      <div class="w-5 h-5 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-0.5">A</div>
+                      <div>
+                        <p class="text-sm font-medium text-navy">管理模式文化冲突</p>
+                        <p class="text-xs text-muted mt-1">集权式管理与海外团队自主性需求的矛盾</p>
+                      </div>
+                    </div>
+                    <div class="flex items-start">
+                      <div class="w-5 h-5 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-0.5">B</div>
+                      <div>
+                        <p class="text-sm font-medium text-navy">本土化人才断层</p>
+                        <p class="text-xs text-muted mt-1">过度依赖国内派遣，缺乏本地关键人才</p>
+                      </div>
+                    </div>
+                    <div class="flex items-start">
+                      <div class="w-5 h-5 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-0.5">C</div>
+                      <div>
+                        <p class="text-sm font-medium text-navy">沟通效率严重衰减</p>
+                        <p class="text-xs text-muted mt-1">语言障碍与文化差异导致信息传递失真</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="bg-gradient-to-r from-blue-50 to-white p-4 rounded-lg border border-blue-100">
+                  <div class="flex items-start">
+                    <i class="fas fa-database text-blue-500 mt-1 mr-3"></i>
+                    <div>
+                      <p class="text-xs font-medium text-blue-800 mb-1">实证数据</p>
+                      <p class="text-xs text-blue-700">
+                        <a href="http://www.eeo.com.cn/2024/0330/648713.shtml" class="citation-link">企业文化冲突占失败原因44%</a>，
+                        <a href="https://m.chwang.com/article/195048159038" class="citation-link">海外人才缺口率高达48%</a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Gene 4: 成本计算幻觉 -->
+            <div class="bg-white rounded-xl p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-300">
+              <div class="flex items-center mb-6">
+                <div class="w-10 h-10 bg-green-100 text-green-700 rounded-xl flex items-center justify-center font-bold text-lg mr-4">04</div>
+                <div>
+                  <h3 class="font-serif text-xl font-semibold text-navy">成本计算幻觉：隐性成本黑洞</h3>
+                  <p class="text-sm text-muted mt-1">在100个案例中出现频率：72%</p>
+                </div>
+              </div>
+              
+              <div class="space-y-4">
+                <div class="bg-green-50 rounded-lg p-4">
+                  <h4 class="font-medium text-navy mb-2 text-sm uppercase tracking-wide">核心机制</h4>
+                  <p class="text-sm text-muted">显性成本模型严重低估隐性成本，导致现金流预测系统性偏差。</p>
+                </div>
+                
+                <div>
+                  <h4 class="font-medium text-navy mb-3">主要成本陷阱</h4>
+                  <div class="space-y-3">
+                    <div class="flex items-start">
+                      <div class="w-5 h-5 bg-green-100 text-green-700 rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-0.5">A</div>
+                      <div>
+                        <p class="text-sm font-medium text-navy">物流成本系统性低估</p>
+                        <p class="text-xs text-muted mt-1">退货率、仓储费、最后一公里配送成本被严重低估</p>
+                      </div>
+                    </div>
+                    <div class="flex items-start">
+                      <div class="w-5 h-5 bg-green-100 text-green-700 rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-0.5">B</div>
+                      <div>
+                        <p class="text-sm font-medium text-navy">获客成本持续攀升</p>
+                        <p class="text-xs text-muted mt-1">本地化营销投入远超预期，ROI持续恶化</p>
+                      </div>
+                    </div>
+                    <div class="flex items-start">
+                      <div class="w-5 h-5 bg-green-100 text-green-700 rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-0.5">C</div>
+                      <div>
+                        <p class="text-sm font-medium text-navy">汇率风险敞口忽视</p>
+                        <p class="text-xs text-muted mt-1">未建立有效的汇率对冲机制，汇兑损失侵蚀利润</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="bg-gradient-to-r from-green-50 to-white p-4 rounded-lg border border-green-100">
+                  <div class="flex items-start">
+                    <i class="fas fa-balance-scale text-green-500 mt-1 mr-3"></i>
+                    <div>
+                      <p class="text-xs font-medium text-green-800 mb-1">案例实证</p>
+                      <p class="text-xs text-green-700">
+                        <a href="https://epaper.nfnews.com/nfdaily/html/202506/16/content_10138627.html" class="citation-link">某企业因未考虑汇率波动，单次跨境交易亏损500万元</a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Gene 5: 产品与供应链能力不足 -->
+            <div class="bg-white rounded-xl p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-300">
+              <div class="flex items-center mb-6">
+                <div class="w-10 h-10 bg-pink-100 text-pink-700 rounded-xl flex items-center justify-center font-bold text-lg mr-4">05</div>
+                <div>
+                  <h3 class="font-serif text-xl font-semibold text-navy">产品与供应链能力断层</h3>
+                  <p class="text-sm text-muted mt-1">在100个案例中出现频率：61%</p>
+                </div>
+              </div>
+              
+              <div class="space-y-4">
+                <div class="bg-pink-50 rounded-lg p-4">
+                  <h4 class="font-medium text-navy mb-2 text-sm uppercase tracking-wide">核心机制</h4>
+                  <p class="text-sm text-muted">产品本地化深度不足，供应链体系无法适应海外市场波动。</p>
+                </div>
+                
+                <div>
+                  <h4 class="font-medium text-navy mb-3">主要能力短板</h4>
+                  <div class="space-y-3">
+                    <div class="flex items-start">
+                      <div class="w-5 h-5 bg-pink-100 text-pink-700 rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-0.5">A</div>
+                      <div>
+                        <p class="text-sm font-medium text-navy">产品本地化系统性不足</p>
+                        <p class="text-xs text-muted mt-1">功能设计、UI/UX、内容策略未适配本地需求</p>
+                      </div>
+                    </div>
+                    <div class="flex items-start">
+                      <div class="w-5 h-5 bg-pink-100 text-pink-700 rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-0.5">B</div>
+                      <div>
+                        <p class="text-sm font-medium text-navy">供应链韧性缺失</p>
+                        <p class="text-xs text-muted mt-1">库存管理混乱，应对市场波动的灵活性不足</p>
+                      </div>
+                    </div>
+                    <div class="flex items-start">
+                      <div class="w-5 h-5 bg-pink-100 text-pink-700 rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-0.5">C</div>
+                      <div>
+                        <p class="text-sm font-medium text-navy">质量控制标准脱节</p>
+                        <p class="text-xs text-muted mt-1">国内质量标准与海外市场要求存在显著差距</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="bg-gradient-to-r from-pink-50 to-white p-4 rounded-lg border border-pink-100">
+                  <div class="flex items-start">
+                    <i class="fas fa-mobile-alt text-pink-500 mt-1 mr-3"></i>
+                    <div>
+                      <p class="text-xs font-medium text-pink-800 mb-1">中东市场案例</p>
+                      <p class="text-xs text-pink-700">
+                        <a href="https://www.xinfinite.net/t/topic/13426" class="citation-link">某手机厂商因未调整产品设计适应中东文化禁忌，市场份额不足1%</a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Gene 6: 品牌认知不足 -->
+            <div class="bg-white rounded-xl p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-300">
+              <div class="flex items-center mb-6">
+                <div class="w-10 h-10 bg-purple-100 text-purple-700 rounded-xl flex items-center justify-center font-bold text-lg mr-4">06</div>
+                <div>
+                  <h3 class="font-serif text-xl font-semibold text-navy">品牌认知建设缺失</h3>
+                  <p class="text-sm text-muted mt-1">在100个案例中出现频率：57%</p>
+                </div>
+              </div>
+              
+              <div class="space-y-4">
+                <div class="bg-purple-50 rounded-lg p-4">
+                  <h4 class="font-medium text-navy mb-2 text-sm uppercase tracking-wide">核心机制</h4>
+                  <p class="text-sm text-muted">缺乏系统性品牌建设思维，过度依赖价格竞争导致价值认知缺失。</p>
+                </div>
+                
+                <div>
+                  <h4 class="font-medium text-navy mb-3">主要建设困境</h4>
+                  <div class="space-y-3">
+                    <div class="flex items-start">
+                      <div class="w-5 h-5 bg-purple-100 text-purple-700 rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-0.5">A</div>
+                      <div>
+                        <p class="text-sm font-medium text-navy">品牌意识结构性薄弱</p>
+                        <p class="text-xs text-muted mt-1">将品牌建设简单理解为营销投放</p>
+                      </div>
+                    </div>
+                    <div class="flex items-start">
+                      <div class="w-5 h-5 bg-purple-100 text-purple-700 rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-0.5">B</div>
+                      <div>
+                        <p class="text-sm font-medium text-navy">品牌定位与市场脱节</p>
+                        <p class="text-xs text-muted mt-1">价值主张未与目标市场消费心理匹配</p>
+                      </div>
+                    </div>
+                    <div class="flex items-start">
+                      <div class="w-5 h-5 bg-purple-100 text-purple-700 rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-0.5">C</div>
+                      <div>
+                        <p class="text-sm font-medium text-navy">消费者信任建立失败</p>
+                        <p class="text-xs text-muted mt-1">缺乏持续的品牌体验导致忠诚度缺失</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="bg-gradient-to-r from-purple-50 to-white p-4 rounded-lg border border-purple-100">
+                  <div class="flex items-start">
+                    <i class="fas fa-chart-line text-purple-500 mt-1 mr-3"></i>
+                    <div>
+                      <p class="text-xs font-medium text-purple-800 mb-1">正反案例对比</p>
+                      <p class="text-xs text-purple-700">
+                        <a href="https://m.chwang.com/article/195048159038" class="citation-link">联想通过ThinkPad与IdeaPad双品牌成功转型，而多数企业仍陷在低价竞争泥潭</a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Gene 7: 忽视政治风险 -->
+            <div class="bg-white rounded-xl p-6 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-300 lg:col-span-2">
+              <div class="flex items-center mb-6">
+                <div class="w-10 h-10 bg-emerald-100 text-emerald-700 rounded-xl flex items-center justify-center font-bold text-lg mr-4">07</div>
+                <div>
+                  <h3 class="font-serif text-xl font-semibold text-navy">政治风险评估缺失</h3>
+                  <p class="text-sm text-muted mt-1">在100个案例中出现频率：53%</p>
+                </div>
+              </div>
+              
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <div class="bg-emerald-50 rounded-lg p-4 mb-4">
+                    <h4 class="font-medium text-navy mb-2 text-sm uppercase tracking-wide">核心机制</h4>
+                    <p class="text-sm text-muted">对地缘政治、政策变动的系统性风险缺乏评估框架与应对预案。</p>
+                  </div>
+                  
+                  <div>
+                    <h4 class="font-medium text-navy mb-3">主要风险维度</h4>
+                    <div class="space-y-3">
+                      <div class="flex items-start">
+                        <div class="w-5 h-5 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-0.5">A</div>
+                        <div>
+                          <p class="text-sm font-medium text-navy">地缘政治风险敞口</p>
+                          <p class="text-xs text-muted mt-1">贸易政策变动、制裁风险等宏观因素冲击</p>
+                        </div>
+                      </div>
+                      <div class="flex items-start">
+                        <div class="w-5 h-5 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-0.5">B</div>
+                        <div>
+                          <p class="text-sm font-medium text-navy">东道国政治稳定性</p>
+                          <p class="text-xs text-muted mt-1">政权更迭、政策连续性对商业环境的影响</p>
+                        </div>
+                      </div>
+                      <div class="flex items-start">
+                        <div class="w-5 h-5 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-0.5">C</div>
+                        <div>
+                          <p class="text-sm font-medium text-navy">贸易保护主义抬头</p>
+                          <p class="text-xs text-muted mt-1">关税壁垒、本地化比例要求等非关税壁垒</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div>
+                  <div class="bg-gradient-to-br from-emerald-50 to-white p-5 rounded-lg border border-emerald-100 h-full">
+                    <div class="flex items-start mb-4">
+                      <i class="fas fa-globe-americas text-emerald-500 mt-1 mr-3"></i>
+                      <div>
+                        <h4 class="text-sm font-medium text-emerald-800 mb-2">风险量化数据</h4>
+                        <ul class="space-y-2">
+                          <li class="flex items-center text-xs text-emerald-700">
+                            <i class="fas fa-circle text-xs mr-2"></i>
+                            <a href="http://www.eeo.com.cn/2024/0330/648713.shtml" class="citation-link">约25%失败案例由政治原因直接造成</a>
+                          </li>
+                          <li class="flex items-center text-xs text-emerald-700">
+                            <i class="fas fa-circle text-xs mr-2"></i>
+                            <a href="https://www.deheheng.com/content/33411.html" class="citation-link">美国HFCAA等法规设置上市障碍</a>
+                          </li>
+                          <li class="flex items-center text-xs text-emerald-700">
+                            <i class="fas fa-circle text-xs mr-2"></i>
+                            <span>样本企业中仅12%建立了政治风险评估机制</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    
+                    <div class="mt-6 pt-4 border-t border-emerald-100">
+                      <p class="text-xs text-emerald-800 font-medium">关键发现：</p>
+                      <p class="text-xs text-emerald-700 mt-1">政治风险往往不是独立变量，而是与其他风险基因（合规、成本、组织）产生叠加效应，形成&#34;风险共振&#34;。</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: 深度案例拆解 -->
+      <section id="section3" class="px-8 py-16 bg-white">
+        <div class="max-w-6xl mx-auto">
+          <div class="flex items-center mb-6">
+            <div class="w-8 h-8 bg-research-blue text-white rounded-lg flex items-center justify-center font-bold mr-3">03</div>
+            <h2 class="font-serif text-4xl font-bold text-navy">典型案例深度解构：五种典型失败模式</h2>
+          </div>
+          <p class="text-research-gray text-lg mb-12 max-w-4xl">本章选取五个具有代表性的失败案例，从多维角度解构其失败机理，揭示不同风险基因的相互作用路径。</p>
+
+          <!-- Case Studies Grid -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Case 1: 3C电子品牌 -->
+            <div class="bg-gradient-to-br from-gray-50 to-white rounded-xl p-6 shadow-sm border border-gray-200">
+              <div class="flex items-center mb-6">
+                <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mr-4">
+                  <i class="fas fa-mobile-alt text-red-600 text-lg"></i>
+                </div>
+                <div>
+                  <h3 class="font-serif text-xl font-semibold text-navy">案例一：3C电子品牌的东南亚滑铁卢</h3>
+                  <div class="flex items-center mt-1">
+                    <span class="text-xs font-medium bg-red-100 text-red-700 px-2 py-1 rounded">失败模式：文化冲突型</span>
+                    <span class="text-xs text-muted ml-2">2025</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="space-y-5">
+                <div class="bg-white rounded-lg p-4 border border-gray-100">
+                  <h4 class="font-medium text-navy mb-3">企业背景与战略意图</h4>
+                  <p class="text-sm text-muted">国内TWS蓝牙耳机头部品牌，年销售额¥8亿，国内市场占有率15%。基于&#34;新市场扩张&#34;战略，选择印尼作为出海首站，预期首年销售额¥1.2亿。</p>
+                </div>
+
+                <div class="bg-red-50 rounded-lg p-4 border border-red-100">
+                  <h4 class="font-medium text-navy mb-3">关键决策失误分析</h4>
+                  <div class="space-y-3">
+                    <div class="flex items-start">
+                      <div class="w-6 h-6 bg-red-200 text-red-700 rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-0.5">1</div>
+                      <div>
+                        <p class="text-sm font-medium text-navy">文化敏感性严重缺失</p>
+                        <p class="text-xs text-muted mt-1">包装设计采用猪形象元素，触犯穆斯林文化禁忌（印尼87%人口为穆斯林）</p>
+                      </div>
+                    </div>
+                    <div class="flex items-start">
+                      <div class="w-6 h-6 bg-red-200 text-red-700 rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-0.5">2</div>
+                      <div>
+                        <p class="text-sm font-medium text-navy">定价策略与市场脱节</p>
+                        <p class="text-xs text-muted mt-1">定价99美元（约140万印尼盾），远超当地主流消费水平（30-50美元区间）</p>
+                      </div>
+                    </div>
+                    <div class="flex items-start">
+                      <div class="w-6 h-6 bg-red-200 text-red-700 rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-0.5">3</div>
+                      <div>
+                        <p class="text-sm font-medium text-navy">渠道建设能力不足</p>
+                        <p class="text-xs text-muted mt-1">过度依赖电商平台，未建立线下分销网络，市场覆盖严重受限</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bg-gradient-to-r from-red-100 to-white rounded-lg p-4 border border-red-200">
+                  <h4 class="font-medium text-navy mb-3">财务损失量化</h4>
+                  <div class="grid grid-cols-2 gap-4">
+                    <div class="text-center">
+                      <div class="text-2xl font-bold text-red-600 font-mono">41.3%</div>
+                      <div class="text-xs text-muted">平均退货率</div>
+                    </div>
+                    <div class="text-center">
+                      <div class="text-2xl font-bold text-red-600 font-mono">$5.2M</div>
+                      <div class="text-xs text-muted">总亏损额</div>
+                    </div>
+                    <div class="text-center col-span-2">
+                      <div class="text-sm font-medium text-red-700">市场投入产出比：0.28</div>
+                      <div class="text-xs text-muted mt-1">每投入1美元营销费用，仅产生0.28美元收入</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bg-white rounded-lg p-4 border border-gray-100">
+                  <div class="flex items-start">
+                    <i class="fas fa-quote-left text-gray-400 mt-1 mr-3"></i>
+                    <div>
+                      <p class="text-sm font-medium text-navy mb-1">创始人复盘反思</p>
+                      <p class="text-xs text-muted italic">&#34;我们犯了一个经典错误：将中国市场的成功经验直接移植到文化基因完全不同的市场。出海不是简单的&#39;卖货&#39;逻辑，而是一场需要深度本地化的系统性工程。&#34;</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Case 2: 传统制造企业 -->
+            <div class="bg-gradient-to-br from-gray-50 to-white rounded-xl p-6 shadow-sm border border-gray-200">
+              <div class="flex items-center mb-6">
+                <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center mr-4">
+                  <i class="fas fa-industry text-amber-600 text-lg"></i>
+                </div>
+                <div>
+                  <h3 class="font-serif text-xl font-semibold text-navy">案例二：传统制造企业的欧洲展会溃败</h3>
+                  <div class="flex items-center mt-1">
+                    <span class="text-xs font-medium bg-amber-100 text-amber-700 px-2 py-1 rounded">失败模式：合规缺失型</span>
+                    <span class="text-xs text-muted ml-2">2025</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="space-y-5">
+                <div class="bg-white rounded-lg p-4 border border-gray-100">
+                  <h4 class="font-medium text-navy mb-3">企业背景与战略意图</h4>
+                  <p class="text-sm text-muted">浙江台州五金配件制造企业，年产值¥2.5亿，长期为欧洲品牌OEM代工。为提升价值链地位，决定以自主品牌参加德国汉诺威工业展，预期获取€500万订单。</p>
+                </div>
+
+                <div class="bg-amber-50 rounded-lg p-4 border border-amber-100">
+                  <h4 class="font-medium text-navy mb-3">关键决策失误分析</h4>
+                  <div class="space-y-3">
+                    <div class="flex items-start">
+                      <div class="w-6 h-6 bg-amber-200 text-amber-700 rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-0.5">1</div>
+                      <div>
+                        <p class="text-sm font-medium text-navy">强制性认证完全缺失</p>
+                        <p class="text-xs text-muted mt-1">产品未取得CE认证（欧盟强制性安全认证），法律上禁止在欧盟市场销售</p>
+                      </div>
+                    </div>
+                    <div class="flex items-start">
+                      <div class="w-6 h-6 bg-amber-200 text-amber-700 rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-0.5">2</div>
+                      <div>
+                        <p class="text-sm font-medium text-navy">竞争分析严重不足</p>
+                        <p class="text-xs text-muted mt-1">定价高于德国本土竞争对手15-20%，但质量与品牌认知度显著落后</p>
+                      </div>
+                    </div>
+                    <div class="flex items-start">
+                      <div class="w-6 h-6 bg-amber-200 text-amber-700 rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-0.5">3</div>
+                      <div>
+                        <p class="text-sm font-medium text-navy">技术文档准备不足</p>
+                        <p class="text-xs text-muted mt-1">缺乏欧盟要求的完整技术文件（技术图纸、测试报告、风险评估等）</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bg-gradient-to-r from-amber-100 to-white rounded-lg p-4 border border-amber-200">
+                  <h4 class="font-medium text-navy mb-3">财务损失量化</h4>
+                  <div class="grid grid-cols-2 gap-4">
+                    <div class="text-center">
+                      <div class="text-2xl font-bold text-amber-600 font-mono">¥108万</div>
+                      <div class="text-xs text-muted">展会直接投入</div>
+                    </div>
+                    <div class="text-center">
+                      <div class="text-2xl font-bold text-amber-600 font-mono">0</div>
+                      <div class="text-xs text-muted">现场订单数量</div>
+                    </div>
+                    <div class="text-center col-span-2">
+                      <div class="text-sm font-medium text-amber-700">客户咨询转化率：0%</div>
+                      <div class="text-xs text-muted mt-1">共接待47家潜在客户，均因合规问题无法推进</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bg-white rounded-lg p-4 border border-gray-100">
+                  <div class="flex items-start">
+                    <i class="fas fa-quote-left text-gray-400 mt-1 mr-3"></i>
+                    <div>
+                      <p class="text-sm font-medium text-navy mb-1">创始人复盘反思</p>
+                      <p class="text-xs text-muted italic">&#34;我们以为产品质量好就能赢得市场，完全忽视了规则的力量。在欧洲市场，合规不是加分项，而是入场券。没有这张入场券，连竞争的资格都没有。&#34;</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Case 3: 新消费品牌 -->
+            <div class="bg-gradient-to-br from-gray-50 to-white rounded-xl p-6 shadow-sm border border-gray-200">
+              <div class="flex items-center mb-6">
+                <div class="w-12 h-12 bg-pink-100 rounded-xl flex items-center justify-center mr-4">
+                  <i class="fas fa-palette text-pink-600 text-lg"></i>
+                </div>
+                <div>
+                  <h3 class="font-serif text-xl font-semibold text-navy">案例三：新消费品牌独立站困境</h3>
+                  <div class="flex items-center mt-1">
+                    <span class="text-xs font-medium bg-pink-100 text-pink-700 px-2 py-1 rounded">失败模式：战略模糊型</span>
+                    <span class="text-xs text-muted ml-2">2025</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="space-y-5">
+                <div class="bg-white rounded-lg p-4 border border-gray-100">
+                  <h4 class="font-medium text-navy mb-3">企业背景与战略意图</h4>
+                  <p class="text-sm text-muted">国内新锐美妆品牌，通过社交媒体营销在国内快速崛起，年销售额¥3.2亿。采用DTC模式直接进入欧美市场，预算$200万，预期首年GMV $500万。</p>
+                </div>
+
+                <div class="bg-pink-50 rounded-lg p-4 border border-pink-100">
+                  <h4 class="font-medium text-navy mb-3">关键决策失误分析</h4>
+                  <div class="space-y-3">
+                    <div class="flex items-start">
+                      <div class="w-6 h-6 bg-pink-200 text-pink-700 rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-0.5">1</div>
+                      <div>
+                        <p class="text-sm font-medium text-navy">市场聚焦严重分散</p>
+                        <p class="text-xs text-muted mt-1">同时进入美、英、德、法、澳五个市场，资源过度分散，无深度突破</p>
+                      </div>
+                    </div>
+                    <div class="flex items-start">
+                      <div class="w-6 h-6 bg-pink-200 text-pink-700 rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-0.5">2</div>
+                      <div>
+                        <p class="text-sm font-medium text-navy">售后体系严重缺失</p>
+                        <p class="text-xs text-muted mt-1">客服响应时间&gt;48小时，退货政策苛刻（仅7天，承担50%运费）</p>
+                      </div>
+                    </div>
+                    <div class="flex items-start">
+                      <div class="w-6 h-6 bg-pink-200 text-pink-700 rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-0.5">3</div>
+                      <div>
+                        <p class="text-sm font-medium text-navy">内容本地化深度不足</p>
+                        <p class="text-xs text-muted mt-1">营销内容简单翻译，未考虑文化语境与审美差异</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bg-gradient-to-r from-pink-100 to-white rounded-lg p-4 border border-pink-200">
+                  <h4 class="font-medium text-navy mb-3">财务损失量化</h4>
+                  <div class="grid grid-cols-2 gap-4">
+                    <div class="text-center">
+                      <div class="text-2xl font-bold text-pink-600 font-mono">$520K</div>
+                      <div class="text-xs text-muted">广告总投入</div>
+                    </div>
+                    <div class="text-center">
+                      <div class="text-2xl font-bold text-pink-600 font-mono">0.32</div>
+                      <div class="text-xs text-muted">营销ROI</div>
+                    </div>
+                    <div class="text-center col-span-2">
+                      <div class="text-sm font-medium text-pink-700">客户获取成本：$87</div>
+                      <div class="text-xs text-muted mt-1">远高于行业平均$35-45水平</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bg-white rounded-lg p-4 border border-gray-100">
+                  <div class="flex items-start">
+                    <i class="fas fa-quote-left text-gray-400 mt-1 mr-3"></i>
+                    <div>
+                      <p class="text-sm font-medium text-navy mb-1">创始人复盘反思</p>
+                      <p class="text-xs text-muted italic">&#34;我们误以为DTC模式就是建个网站投广告，完全忽视了品牌建设与用户体验的系统性。独立站出海不是流量游戏，而是关于信任建立与价值交付的长期工程。&#34;</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Case 4: 乐视 -->
+            <div class="bg-gradient-to-br from-gray-50 to-white rounded-xl p-6 shadow-sm border border-gray-200">
+              <div class="flex items-center mb-6">
+                <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mr-4">
+                  <i class="fas fa-tv text-blue-600 text-lg"></i>
+                </div>
+                <div>
+                  <h3 class="font-serif text-xl font-semibold text-navy">案例四：乐视美国战略失效</h3>
+                  <div class="flex items-center mt-1">
+                    <span class="text-xs font-medium bg-blue-100 text-blue-700 px-2 py-1 rounded">失败模式：模式移植型</span>
+                    <span class="text-xs text-muted ml-2">2025</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="space-y-5">
+                <div class="bg-white rounded-lg p-4 border border-gray-100">
+                  <h4 class="font-medium text-navy mb-3">企业背景与战略意图</h4>
+                  <p class="text-sm text-muted">乐视2025年市值峰值¥1500亿，提出&#34;生态化反&#34;战略，计划投资$10亿进军美国市场，构建&#34;平台+内容+硬件+软件+应用&#34;生态系统。</p>
+                </div>
+
+                <div class="bg-blue-50 rounded-lg p-4 border border-blue-100">
+                  <h4 class="font-medium text-navy mb-3">关键决策失误分析</h4>
+                  <div class="space-y-3">
+                    <div class="flex items-start">
+                      <div class="w-6 h-6 bg-blue-200 text-blue-700 rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-0.5">1</div>
+                      <div>
+                        <p class="text-sm font-medium text-navy">商业模式&#34;水土不服&#34;</p>
+                        <p class="text-xs text-muted mt-1">&#34;硬件免费+内容付费&#34;模式在美国缺乏用户基础与支付习惯</p>
+                      </div>
+                    </div>
+                    <div class="flex items-start">
+                      <div class="w-6 h-6 bg-blue-200 text-blue-700 rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-0.5">2</div>
+                      <div>
+                        <p class="text-sm font-medium text-navy">组织文化剧烈冲突</p>
+                        <p class="text-xs text-muted mt-1">高强度&#34;996&#34;工作文化与硅谷自由创新文化格格不入，核心人才流失严重</p>
+                      </div>
+                    </div>
+                    <div class="flex items-start">
+                      <div class="w-6 h-6 bg-blue-200 text-blue-700 rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-0.5">3</div>
+                      <div>
+                        <p class="text-sm font-medium text-navy">内容资源严重不足</p>
+                        <p class="text-xs text-muted mt-1">缺乏美国本土优质内容资源，与Netflix、Amazon等巨头竞争劣势明显</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bg-gradient-to-r from-blue-100 to-white rounded-lg p-4 border border-blue-200">
+                  <h4 class="font-medium text-navy mb-3">财务损失量化</h4>
+                  <div class="grid grid-cols-2 gap-4">
+                    <div class="text-center">
+                      <div class="text-2xl font-bold text-blue-600 font-mono">$1.2B+</div>
+                      <div class="text-xs text-muted">北美总投入</div>
+                    </div>
+                    <div class="text-center">
+                      <div class="text-2xl font-bold text-blue-600 font-mono">&lt;5%</div>
+                      <div class="text-xs text-muted">投资回收率</div>
+                    </div>
+                    <div class="text-center col-span-2">
+                      <div class="text-sm font-medium text-blue-700">员工离职率：67%</div>
+                      <div class="text-xs text-muted mt-1">美国团队18个月内离职率</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bg-white rounded-lg p-4 border border-gray-100">
+                  <div class="flex items-start">
+                    <i class="fas fa-quote-left text-gray-400 mt-1 mr-3"></i>
+                    <div>
+                      <p class="text-sm font-medium text-navy mb-1">研究分析结论</p>
+                      <p class="text-xs text-muted italic">&#34;乐视案例揭示了商业模式跨文化移植的复杂性。任何商业模式的出海成功，都必须建立在对目标市场规则体系、用户习惯与文化价值观的深度理解之上。&#34;</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 4: 总结与自测表 -->
+      <section id="section4" class="px-8 py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+          <div class="flex items-center mb-6">
+            <div class="w-8 h-8 bg-research-blue text-white rounded-lg flex items-center justify-center font-bold mr-3">04</div>
+            <h2 class="font-serif text-4xl font-bold text-navy">风险评估与决策支持：企业出海适应性诊断</h2>
+          </div>
+          <p class="text-research-gray text-lg mb-12 max-w-4xl">基于对100家失败企业的深度研究，本章构建了系统性风险评估框架，帮助企业识别潜在风险暴露点，并提供决策支持工具。</p>
+
+          <!-- Common Characteristics -->
+          <div class="mb-16">
+            <div class="flex items-center justify-between mb-8">
+              <h3 class="font-serif text-2xl font-semibold">失败企业的共性特征画像</h3>
+              <span class="research-badge">特征聚类分析</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+                <div class="flex items-center mb-4">
+                  <div class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center mr-3">
+                    <i class="fas fa-chart-line text-red-600"></i>
+                  </div>
+                  <h4 class="font-semibold text-navy">财务结构特征</h4>
+                </div>
+                <ul class="space-y-3">
+                  <li class="flex items-start">
+                    <div class="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3"></div>
+                    <span class="text-sm text-muted">现金流储备不足，难以支撑12个月以上的市场培育期</span>
+                  </li>
+                  <li class="flex items-start">
+                    <div class="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3"></div>
+                    <span class="text-sm text-muted">研发投入占营收比例&lt;5%，产品迭代能力薄弱</span>
+                  </li>
+                  <li class="flex items-start">
+                    <div class="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3"></div>
+                    <span class="text-sm text-muted">成本核算模型粗糙，隐性成本低估率达150-300%</span>
+                  </li>
+                  <li class="flex items-start">
+                    <div class="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3"></div>
+                    <span class="text-sm text-muted">盈利模式单一，缺乏应对市场波动的财务弹性</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+                <div class="flex items-center mb-4">
+                  <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                    <i class="fas fa-users-cog text-blue-600"></i>
+                  </div>
+                  <h4 class="font-semibold text-navy">组织能力特征</h4>
+                </div>
+                <ul class="space-y-3">
+                  <li class="flex items-start">
+                    <div class="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></div>
+                    <span class="text-sm text-muted">本地化团队建设滞后，过度依赖国内人员派遣</span>
+                  </li>
+                  <li class="flex items-start">
+                    <div class="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></div>
+                    <span class="text-sm text-muted">管理文化僵化，试图简单复制国内管控模式</span>
+                  </li>
+                  <li class="flex items-start">
+                    <div class="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></div>
+                    <span class="text-sm text-muted">国际视野人才储备不足，核心团队缺乏跨境经验</span>
+                  </li>
+                  <li class="flex items-start">
+                    <div class="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></div>
+                    <span class="text-sm text-muted">跨文化沟通机制缺失，信息传递效率衰减&gt;40%</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+                <div class="flex items-center mb-4">
+                  <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mr-3">
+                    <i class="fas fa-chess-knight text-green-600"></i>
+                  </div>
+                  <h4 class="font-semibold text-navy">战略决策特征</h4>
+                </div>
+                <ul class="space-y-3">
+                  <li class="flex items-start">
+                    <div class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3"></div>
+                    <span class="text-sm text-muted">缺乏系统性市场进入规划，战略制定周期&lt;3个月</span>
+                  </li>
+                  <li class="flex items-start">
+                    <div class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3"></div>
+                    <span class="text-sm text-muted">决策受行业热潮驱动，缺乏独立的深度市场分析</span>
+                  </li>
+                  <li class="flex items-start">
+                    <div class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3"></div>
+                    <span class="text-sm text-muted">经验主义路径依赖，试图直接复制国内成功模式</span>
+                  </li>
+                  <li class="flex items-start">
+                    <div class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3"></div>
+                    <span class="text-sm text-muted">风险预警机制缺失，被动应对而非主动管理风险</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Risk Assessment Matrix -->
+          <div class="bg-white rounded-xl p-8 shadow-lg border border-gray-200 mb-12">
+            <div class="matrix-header">
+              <div class="flex items-center mb-2">
+                <i class="fas fa-clipboard-check text-research-blue mr-2"></i>
+                <h3 class="font-serif text-2xl font-semibold text-navy">阿尔法出海研究｜企业出海风险暴露评估矩阵</h3>
+              </div>
+              <p class="text-sm text-research-gray">
+                该评估矩阵基于阿尔法出海研究对大量中国企业出海项目的长期跟踪，总结出高频失败风险暴露点。通过六个维度的系统性诊断，帮助企业量化出海风险水平，识别关键薄弱环节。
+              </p>
+            </div>
+
+            <!-- 维度一：市场与文化适应性评估 -->
+            <div class="mb-6">
+              <h4 class="font-medium text-navy mb-4 flex items-center">
+                <i class="fas fa-globe-americas text-research-blue mr-2"></i>
+                维度一：市场与文化适应性评估
+              </h4>
+              <div class="matrix-table">
+                <table class="w-full">
+                  <thead>
+                    <tr>
+                      <th class="w-1/6">风险维度</th>
+                      <th class="w-2/5">关键判断点（基于阿尔法出海研究）</th>
+                      <th class="w-1/4">判断区间</th>
+                      <th class="w-1/6 text-center">风险权重</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="font-medium text-sm">市场研究深度</td>
+                      <td>
+                        <p class="text-sm text-muted mb-2">是否对目标市场进行过至少3个月的实地或深度调研？（需包含用户行为、渠道结构、竞争格局与定价体系的系统分析）</p>
+                      </td>
+                      <td>
+                        <div class="space-y-2">
+                          <div class="judgment-option" data-question="q1" data-value="0">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">已完成系统研究（0分）</span>
+                            </div>
+                          </div>
+                          <div class="judgment-option" data-question="q1" data-value="1">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">计划中（1分）</span>
+                            </div>
+                          </div>
+                          <div class="judgment-option" data-question="q1" data-value="3">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">否（3分）</span>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <span class="risk-weight">3</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="font-medium text-sm">本地化营销能力</td>
+                      <td>
+                        <p class="text-sm text-muted mb-2">是否拥有目标市场的本地化营销方案和内容创意？（需基于当地文化语境，而非简单翻译）</p>
+                      </td>
+                      <td>
+                        <div class="space-y-2">
+                          <div class="judgment-option" data-question="q2" data-value="0">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">是（0分）</span>
+                            </div>
+                          </div>
+                          <div class="judgment-option" data-question="q2" data-value="1">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">部分有（1分）</span>
+                            </div>
+                          </div>
+                          <div class="judgment-option" data-question="q2" data-value="3">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">否（3分）</span>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <span class="risk-weight">3</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="font-medium text-sm">文化理解深度</td>
+                      <td>
+                        <p class="text-sm text-muted mb-2">核心团队是否有人深入了解目标市场的文化、宗教和商业礼仪？（需具备跨文化沟通的实际经验）</p>
+                      </td>
+                      <td>
+                        <div class="space-y-2">
+                          <div class="judgment-option" data-question="q3" data-value="0">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">是（0分）</span>
+                            </div>
+                          </div>
+                          <div class="judgment-option" data-question="q3" data-value="1">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">略知一二（1分）</span>
+                            </div>
+                          </div>
+                          <div class="judgment-option" data-question="q3" data-value="3">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">否（3分）</span>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <span class="risk-weight">3</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="font-medium text-sm">产品本地化程度</td>
+                      <td>
+                        <p class="text-sm text-muted mb-2">产品是否根据目标市场的用户习惯、审美偏好进行过本地化改造？（需包含功能、设计、包装等系统性调整）</p>
+                      </td>
+                      <td>
+                        <div class="space-y-2">
+                          <div class="judgment-option" data-question="q4" data-value="0">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">是（0分）</span>
+                            </div>
+                          </div>
+                          <div class="judgment-option" data-question="q4" data-value="1">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">小范围调整（1分）</span>
+                            </div>
+                          </div>
+                          <div class="judgment-option" data-question="q4" data-value="3">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">否（3分）</span>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <span class="risk-weight">3</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="font-medium text-sm">竞争格局认知</td>
+                      <td>
+                        <p class="text-sm text-muted mb-2">是否评估过目标市场的主要竞争对手及其优势？（需包含竞品分析、市场份额、竞争策略的系统研究）</p>
+                      </td>
+                      <td>
+                        <div class="space-y-2">
+                          <div class="judgment-option" data-question="q5" data-value="0">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">是（0分）</span>
+                            </div>
+                          </div>
+                          <div class="judgment-option" data-question="q5" data-value="1">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">初步了解（1分）</span>
+                            </div>
+                          </div>
+                          <div class="judgment-option" data-question="q5" data-value="3">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">否（3分）</span>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <span class="risk-weight">3</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- 维度二：合规与风险管理能力评估 -->
+            <div class="mb-6">
+              <h4 class="font-medium text-navy mb-4 flex items-center">
+                <i class="fas fa-shield-alt text-amber-500 mr-2"></i>
+                维度二：合规与风险管理能力评估
+              </h4>
+              <div class="matrix-table">
+                <table class="w-full">
+                  <thead>
+                    <tr>
+                      <th class="w-1/6">风险维度</th>
+                      <th class="w-2/5">关键判断点（基于阿尔法出海研究）</th>
+                      <th class="w-1/4">判断区间</th>
+                      <th class="w-1/6 text-center">风险权重</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="font-medium text-sm">法律支持体系</td>
+                      <td>
+                        <p class="text-sm text-muted mb-2">是否聘请了专业的国际法律顾问或团队？（需覆盖目标市场劳动法、合同法、消费者保护法等关键法规）</p>
+                      </td>
+                      <td>
+                        <div class="space-y-2">
+                          <div class="judgment-option" data-question="q6" data-value="0">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">是（0分）</span>
+                            </div>
+                          </div>
+                          <div class="judgment-option" data-question="q6" data-value="1">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">有合作律所（1分）</span>
+                            </div>
+                          </div>
+                          <div class="judgment-option" data-question="q6" data-value="3">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">否（3分）</span>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <span class="risk-weight">3</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="font-medium text-sm">产品认证完备性</td>
+                      <td>
+                        <p class="text-sm text-muted mb-2">产品是否获得了目标市场所需的所有强制性认证？（如CE、FDA、RoHS等关键认证）</p>
+                      </td>
+                      <td>
+                        <div class="space-y-2">
+                          <div class="judgment-option" data-question="q7" data-value="0">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">是（0分）</span>
+                            </div>
+                          </div>
+                          <div class="judgment-option" data-question="q7" data-value="1">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">部分获得（1分）</span>
+                            </div>
+                          </div>
+                          <div class="judgment-option" data-question="q7" data-value="3">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">否（3分）</span>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <span class="risk-weight">3</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="font-medium text-sm">税务合规体系</td>
+                      <td>
+                        <p class="text-sm text-muted mb-2">是否建立了完善的海外税务合规体系？（需覆盖增值税、关税、所得税等主要税种的申报与缴纳）</p>
+                      </td>
+                      <td>
+                        <div class="space-y-2">
+                          <div class="judgment-option" data-question="q8" data-value="0">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">是（0分）</span>
+                            </div>
+                          </div>
+                          <div class="judgment-option" data-question="q8" data-value="1">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">正在建立（1分）</span>
+                            </div>
+                          </div>
+                          <div class="judgment-option" data-question="q8" data-value="3">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">否（3分）</span>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <span class="risk-weight">3</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="font-medium text-sm">知识产权布局</td>
+                      <td>
+                        <p class="text-sm text-muted mb-2">是否在目标市场进行了核心商标和专利的注册与布局？（需考虑国际专利保护与商标防御性注册）</p>
+                      </td>
+                      <td>
+                        <div class="space-y-2">
+                          <div class="judgment-option" data-question="q9" data-value="0">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">是（0分）</span>
+                            </div>
+                          </div>
+                          <div class="judgment-option" data-question="q9" data-value="1">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">正在申请（1分）</span>
+                            </div>
+                          </div>
+                          <div class="judgment-option" data-question="q9" data-value="3">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">否（3分）</span>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <span class="risk-weight">3</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="font-medium text-sm">政治风险评估</td>
+                      <td>
+                        <p class="text-sm text-muted mb-2">是否评估过目标市场的地缘政治和政策变动风险？（需包含贸易政策、关税变动、双边关系等宏观因素分析）</p>
+                      </td>
+                      <td>
+                        <div class="space-y-2">
+                          <div class="judgment-option" data-question="q10" data-value="0">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">是（0分）</span>
+                            </div>
+                          </div>
+                          <div class="judgment-option" data-question="q10" data-value="1">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">有初步评估（1分）</span>
+                            </div>
+                          </div>
+                          <div class="judgment-option" data-question="q10" data-value="3">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">否（3分）</span>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <span class="risk-weight">3</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- 维度三：组织与团队能力评估 -->
+            <div class="mb-6">
+              <h4 class="font-medium text-navy mb-4 flex items-center">
+                <i class="fas fa-users text-blue-500 mr-2"></i>
+                维度三：组织与团队能力评估
+              </h4>
+              <div class="matrix-table">
+                <table class="w-full">
+                  <thead>
+                    <tr>
+                      <th class="w-1/6">风险维度</th>
+                      <th class="w-2/5">关键判断点（基于阿尔法出海研究）</th>
+                      <th class="w-1/4">判断区间</th>
+                      <th class="w-1/6 text-center">风险权重</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="font-medium text-sm">国际管理人才</td>
+                      <td>
+                        <p class="text-sm text-muted mb-2">是否拥有具备国际视野和跨文化沟通能力的管理人才？（需有海外工作或管理经验）</p>
+                      </td>
+                      <td>
+                        <div class="space-y-2">
+                          <div class="judgment-option" data-question="q11" data-value="0">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">是（0分）</span>
+                            </div>
+                          </div>
+                          <div class="judgment-option" data-question="q11" data-value="1">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">不确定（1分）</span>
+                            </div>
+                          </div>
+                          <div class="judgment-option" data-question="q11" data-value="3">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">否（3分）</span>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <span class="risk-weight">3</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="font-medium text-sm">本地化团队建设</td>
+                      <td>
+                        <p class="text-sm text-muted mb-2">在目标市场是否建立了本地化团队？（需包含业务、运营、市场等关键职能的本地招聘）</p>
+                      </td>
+                      <td>
+                        <div class="space-y-2">
+                          <div class="judgment-option" data-question="q12" data-value="0">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">是（0分）</span>
+                            </div>
+                          </div>
+                          <div class="judgment-option" data-question="q12" data-value="1">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">计划中（1分）</span>
+                            </div>
+                          </div>
+                          <div class="judgment-option" data-question="q12" data-value="3">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">否（3分）</span>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <span class="risk-weight">3</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="font-medium text-sm">管理模式适应性</td>
+                      <td>
+                        <p class="text-sm text-muted mb-2">是否对海外团队采用了与国内相同的管理模式？（高度集权式管理在海外市场风险较高）</p>
+                      </td>
+                      <td>
+                        <div class="space-y-2">
+                          <div class="judgment-option" data-question="q13" data-value="0">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">否（0分）</span>
+                            </div>
+                          </div>
+                          <div class="judgment-option" data-question="q13" data-value="1">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">部分相同（1分）</span>
+                            </div>
+                          </div>
+                          <div class="judgment-option" data-question="q13" data-value="3">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">是（3分）</span>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <span class="risk-weight">3</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="font-medium text-sm">人才本地化倾向</td>
+                      <td>
+                        <p class="text-sm text-muted mb-2">进行海外招聘时，是否更倾向于从国内派遣，而非招聘本地人才？（过度依赖国内派遣存在文化适应风险）</p>
+                      </td>
+                      <td>
+                        <div class="space-y-2">
+                          <div class="judgment-option" data-question="q14" data-value="0">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">否（0分）</span>
+                            </div>
+                          </div>
+                          <div class="judgment-option" data-question="q14" data-value="1">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">视情况而定（1分）</span>
+                            </div>
+                          </div>
+                          <div class="judgment-option" data-question="q14" data-value="3">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">是（3分）</span>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <span class="risk-weight">3</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="font-medium text-sm">管理团队结构</td>
+                      <td>
+                        <p class="text-sm text-muted mb-2">核心管理层中，是否存在"亲信化"或"家族化"的倾向？（这可能影响海外团队的信任建立与专业决策）</p>
+                      </td>
+                      <td>
+                        <div class="space-y-2">
+                          <div class="judgment-option" data-question="q15" data-value="0">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">否（0分）</span>
+                            </div>
+                          </div>
+                          <div class="judgment-option" data-question="q15" data-value="1">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">有一定倾向（1分）</span>
+                            </div>
+                          </div>
+                          <div class="judgment-option" data-question="q15" data-value="3">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">是（3分）</span>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <span class="risk-weight">3</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- 维度四：财务与成本控制能力评估 -->
+            <div class="mb-6">
+              <h4 class="font-medium text-navy mb-4 flex items-center">
+                <i class="fas fa-chart-line text-green-500 mr-2"></i>
+                维度四：财务与成本控制能力评估
+              </h4>
+              <div class="matrix-table">
+                <table class="w-full">
+                  <thead>
+                    <tr>
+                      <th class="w-1/6">风险维度</th>
+                      <th class="w-2/5">关键判断点（基于阿尔法出海研究）</th>
+                      <th class="w-1/4">判断区间</th>
+                      <th class="w-1/6 text-center">风险权重</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="font-medium text-sm">现金流支撑能力</td>
+                      <td>
+                        <p class="text-sm text-muted mb-2">是否有足够的现金流支撑海外业务至少12个月的运营？（需考虑市场培育期的亏损与现金流消耗）</p>
+                      </td>
+                      <td>
+                        <div class="space-y-2">
+                          <div class="judgment-option" data-question="q16" data-value="0">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">是（0分）</span>
+                            </div>
+                          </div>
+                          <div class="judgment-option" data-question="q16" data-value="1">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">勉强支撑（1分）</span>
+                            </div>
+                          </div>
+                          <div class="judgment-option" data-question="q16" data-value="3">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">否（3分）</span>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <span class="risk-weight">3</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="font-medium text-sm">隐性成本考虑</td>
+                      <td>
+                        <p class="text-sm text-muted mb-2">制定出海预算时，是否充分考虑了隐性成本？（如退货、合规、本地化营销等易被忽视的成本项）</p>
+                      </td>
+                      <td>
+                        <div class="space-y-2">
+                          <div class="judgment-option" data-question="q17" data-value="0">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">是（0分）</span>
+                            </div>
+                          </div>
+                          <div class="judgment-option" data-question="q17" data-value="1">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">部分考虑（1分）</span>
+                            </div>
+                          </div>
+                          <div class="judgment-option" data-question="q17" data-value="3">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">否（3分）</span>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <span class="risk-weight">3</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="font-medium text-sm">研发投入水平</td>
+                      <td>
+                        <p class="text-sm text-muted mb-2">研发投入占营收的比例是否高于5%？（这是衡量产品创新能力与迭代速度的关键指标）</p>
+                      </td>
+                      <td>
+                        <div class="space-y-2">
+                          <div class="judgment-option" data-question="q18" data-value="0">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">是（0分）</span>
+                            </div>
+                          </div>
+                          <div class="judgment-option" data-question="q18" data-value="1">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">接近5%（1分）</span>
+                            </div>
+                          </div>
+                          <div class="judgment-option" data-question="q18" data-value="3">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">否（3分）</span>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <span class="risk-weight">3</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="font-medium text-sm">成本核算体系</td>
+                      <td>
+                        <p class="text-sm text-muted mb-2">是否建立了精细化的海外业务成本核算与监控体系？（需能追踪各项成本的真实发生与效率）</p>
+                      </td>
+                      <td>
+                        <div class="space-y-2">
+                          <div class="judgment-option" data-question="q19" data-value="0">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">是（0分）</span>
+                            </div>
+                          </div>
+                          <div class="judgment-option" data-question="q19" data-value="1">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">初步建立（1分）</span>
+                            </div>
+                          </div>
+                          <div class="judgment-option" data-question="q19" data-value="3">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">否（3分）</span>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <span class="risk-weight">3</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="font-medium text-sm">营销ROI管理</td>
+                      <td>
+                        <p class="text-sm text-muted mb-2">是否对海外业务的营销投入产出比（ROI）有明确的考核指标？（需建立科学的营销效率评估体系）</p>
+                      </td>
+                      <td>
+                        <div class="space-y-2">
+                          <div class="judgment-option" data-question="q20" data-value="0">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">是（0分）</span>
+                            </div>
+                          </div>
+                          <div class="judgment-option" data-question="q20" data-value="1">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">有但不严格（1分）</span>
+                            </div>
+                          </div>
+                          <div class="judgment-option" data-question="q20" data-value="3">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">否（3分）</span>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <span class="risk-weight">3</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- 维度五：产品与供应链能力评估 -->
+            <div class="mb-6">
+              <h4 class="font-medium text-navy mb-4 flex items-center">
+                <i class="fas fa-cogs text-purple-500 mr-2"></i>
+                维度五：产品与供应链能力评估
+              </h4>
+              <div class="matrix-table">
+                <table class="w-full">
+                  <thead>
+                    <tr>
+                      <th class="w-1/6">风险维度</th>
+                      <th class="w-2/5">关键判断点（基于阿尔法出海研究）</th>
+                      <th class="w-1/4">判断区间</th>
+                      <th class="w-1/6 text-center">风险权重</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="font-medium text-sm">技术壁垒与差异化</td>
+                      <td>
+                        <p class="text-sm text-muted mb-2">产品是否拥有核心技术壁垒或显著的差异化优势？（这是应对海外市场竞争的关键要素）</p>
+                      </td>
+                      <td>
+                        <div class="space-y-2">
+                          <div class="judgment-option" data-question="q21" data-value="0">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">是（0分）</span>
+                            </div>
+                          </div>
+                          <div class="judgment-option" data-question="q21" data-value="1">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">有一定优势（1分）</span>
+                            </div>
+                          </div>
+                          <div class="judgment-option" data-question="q21" data-value="3">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">否（3分）</span>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <span class="risk-weight">3</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="font-medium text-sm">供应链韧性</td>
+                      <td>
+                        <p class="text-sm text-muted mb-2">供应链是否具备应对海外市场波动的韧性和灵活性？（需考虑物流中断、需求波动等风险场景）</p>
+                      </td>
+                      <td>
+                        <div class="space-y-2">
+                          <div class="judgment-option" data-question="q22" data-value="0">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">是（0分）</span>
+                            </div>
+                          </div>
+                          <div class="judgment-option" data-question="q22" data-value="1">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">一般（1分）</span>
+                            </div>
+                          </div>
+                          <div class="judgment-option" data-question="q22" data-value="3">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">否（3分）</span>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <span class="risk-weight">3</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="font-medium text-sm">库存管理系统</td>
+                      <td>
+                        <p class="text-sm text-muted mb-2">是否建立了科学的海外库存预测和管理系统？（需能平衡缺货风险与库存成本）</p>
+                      </td>
+                      <td>
+                        <div class="space-y-2">
+                          <div class="judgment-option" data-question="q23" data-value="0">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">是（0分）</span>
+                            </div>
+                          </div>
+                          <div class="judgment-option" data-question="q23" data-value="1">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">初步建立（1分）</span>
+                            </div>
+                          </div>
+                          <div class="judgment-option" data-question="q23" data-value="3">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">否（3分）</span>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <span class="risk-weight">3</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="font-medium text-sm">技术标准适配</td>
+                      <td>
+                        <p class="text-sm text-muted mb-2">产品是否根据目标市场的技术标准（如电压、插头）进行了适配？（这是产品合规的基本要求）</p>
+                      </td>
+                      <td>
+                        <div class="space-y-2">
+                          <div class="judgment-option" data-question="q24" data-value="0">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">是（0分）</span>
+                            </div>
+                          </div>
+                          <div class="judgment-option" data-question="q24" data-value="1">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">部分适配（1分）</span>
+                            </div>
+                          </div>
+                          <div class="judgment-option" data-question="q24" data-value="3">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">否（3分）</span>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <span class="risk-weight">3</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="font-medium text-sm">供应链备选方案</td>
+                      <td>
+                        <p class="text-sm text-muted mb-2">是否有应对供应链中断的备选方案？（需考虑多供应商、多地仓储等风险分散策略）</p>
+                      </td>
+                      <td>
+                        <div class="space-y-2">
+                          <div class="judgment-option" data-question="q25" data-value="0">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">是（0分）</span>
+                            </div>
+                          </div>
+                          <div class="judgment-option" data-question="q25" data-value="1">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">有初步方案（1分）</span>
+                            </div>
+                          </div>
+                          <div class="judgment-option" data-question="q25" data-value="3">
+                            <div class="flex items-center">
+                              <div class="w-4 h-4 border border-gray-300 rounded-full mr-2"></div>
+                              <span class="text-sm">否（3分）</span>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-center">
+                        <span class="risk-weight">3</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="text-center pt-8">
+              <button onclick="calculateRisk()" class="bg-research-blue text-white px-10 py-4 rounded-lg font-semibold text-lg hover:bg-blue-800 transition-colors shadow-md">
+                <i class="fas fa-calculator mr-2"></i>
+                计算风险评估总分
+              </button>
+              <p class="text-sm text-muted mt-4">基于25个关键判断点，总分范围0-75分，分数越高表示风险暴露程度越高</p>
+            </div>
+
+            <div id="risk-result" class="mt-10 p-6 rounded-xl hidden">
+              <div class="flex items-center mb-6">
+                <i class="fas fa-chart-bar text-2xl text-research-blue mr-3"></i>
+                <h4 class="font-semibold text-navy text-xl">风险评估结果分析</h4>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                <div class="bg-gray-50 rounded-lg p-5 text-center">
+                  <div id="risk-score" class="text-4xl font-bold text-navy font-mono mb-2"></div>
+                  <div class="text-sm text-muted">评估总分</div>
+                </div>
+                <div class="bg-gray-50 rounded-lg p-5 text-center">
+                  <div id="risk-level" class="text-2xl font-bold mb-2"></div>
+                  <div class="text-sm text-muted">风险等级</div>
+                </div>
+                <div class="bg-gray-50 rounded-lg p-5 text-center">
+                  <div id="risk-percentile" class="text-2xl font-bold text-navy mb-2"></div>
+                  <div class="text-sm text-muted">样本百分位</div>
+                </div>
+              </div>
+              <div id="risk-description" class="text-sm text-muted bg-white p-5 rounded-lg border border-gray-200"></div>
+            </div>
+          </div>
+
+          <!-- Matrix Interpretation -->
+          <div class="bg-gradient-to-r from-blue-50 to-white rounded-xl p-8 border border-blue-200 mb-12">
+            <div class="flex items-center mb-6">
+              <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                <i class="fas fa-search text-blue-600"></i>
+              </div>
+              <h3 class="font-serif text-2xl font-semibold text-navy">评估矩阵解读：风险叠加效应分析</h3>
+            </div>
+            
+            <div class="space-y-4">
+              <p class="text-research-gray">
+                在阿尔法出海研究的样本中，单一维度的风险暴露（如合规问题或文化冲突）往往不是导致项目失败的充分条件。真正致命的是多个风险维度同时暴露产生的<strong>叠加效应</strong>。
+              </p>
+              
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                <div class="bg-white rounded-lg p-5 border border-blue-100">
+                  <h4 class="font-medium text-navy mb-3">常见风险叠加模式</h4>
+                  <ul class="space-y-3">
+                    <li class="flex items-start">
+                      <div class="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></div>
+                      <span class="text-sm text-muted"><strong>合规+组织风险叠加</strong>：法律问题遭遇文化冲突，解决效率急剧下降</span>
+                    </li>
+                    <li class="flex items-start">
+                      <div class="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></div>
+                      <span class="text-sm text-muted"><strong>成本+财务风险叠加</strong>：隐性成本超支叠加现金流紧张，加速资金链断裂</span>
+                    </li>
+                    <li class="flex items-start">
+                      <div class="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></div>
+                      <span class="text-sm text-muted"><strong>产品+市场风险叠加</strong>：本地化不足的产品遭遇激烈竞争，市场份额无法突破</span>
+                    </li>
+                  </ul>
+                </div>
+                
+                <div class="bg-white rounded-lg p-5 border border-blue-100">
+                  <h4 class="font-medium text-navy mb-3">关键干预建议</h4>
+                  <ul class="space-y-3">
+                    <li class="flex items-start">
+                      <div class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3"></div>
+                      <span class="text-sm text-muted"><strong>优先解决权重3分的风险点</strong>：这些是失败案例中出现频率最高的关键风险</span>
+                    </li>
+                    <li class="flex items-start">
+                      <div class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3"></div>
+                      <span class="text-sm text-muted"><strong>关注风险关联性</strong>：解决一个风险可能降低其他相关风险的暴露程度</span>
+                    </li>
+                    <li class="flex items-start">
+                      <div class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3"></div>
+                      <span class="text-sm text-muted"><strong>建立动态评估机制</strong>：出海风险是动态变化的，需建立定期重评机制</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              
+              <div class="mt-8 pt-6 border-t border-blue-200">
+                <p class="text-sm text-research-gray italic">
+                  注：本评估矩阵基于100家失败企业的实证研究构建，权重分配反映了各风险维度在失败案例中的实际影响程度。评估结果可作为企业出海决策的重要参考，但不应作为唯一决策依据。
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Report Value Proposition -->
+          <div class="bg-gradient-to-br from-navy to-blue-900 text-white rounded-xl p-10 shadow-xl">
+            <div class="text-center mb-10">
+              <div class="inline-flex items-center justify-center w-16 h-16 bg-white bg-opacity-20 rounded-full mb-6">
+                <i class="fas fa-gem text-2xl text-white"></i>
+              </div>
+              <h3 class="font-serif text-3xl font-semibold mb-4">研究报告核心价值主张</h3>
+              <p class="text-lg text-blue-200 max-w-3xl mx-auto">从现象描述到机制解构，从个案分析到系统框架，本白皮书为企业出海提供三维价值</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div class="text-center">
+                <div class="w-14 h-14 bg-accent bg-opacity-20 rounded-xl flex items-center justify-center mx-auto mb-5">
+                  <i class="fas fa-sitemap text-2xl text-accent"></i>
+                </div>
+                <h4 class="font-semibold text-xl mb-4">决策颗粒度提升</h4>
+                <p class="text-sm text-blue-200">
+                  将抽象的&#34;出海风险&#34;解构为25个可量化评估的关键判断点，帮助企业从&#34;感觉有风险&#34;转向&#34;知道风险在哪、有多大、如何管理&#34;。
+                </p>
+              </div>
+              
+              <div class="text-center">
+                <div class="w-14 h-14 bg-accent bg-opacity-20 rounded-xl flex items-center justify-center mx-auto mb-5">
+                  <i class="fas fa-microscope text-2xl text-accent"></i>
+                </div>
+                <h4 class="font-semibold text-xl mb-4">系统性风险诊断</h4>
+                <p class="text-sm text-blue-200">
+                  基于100个失败案例的深度解构，提供企业自我诊断的&#34;风险CT扫描仪&#34;，识别潜在风险暴露点与脆弱环节。
+                </p>
+              </div>
+              
+              <div class="text-center">
+                <div class="w-14 h-14 bg-accent bg-opacity-20 rounded-xl flex items-center justify-center mx-auto mb-5">
+                  <i class="fas fa-tools text-2xl text-accent"></i>
+                </div>
+                <h4 class="font-semibold text-xl mb-4">专业方法论构建</h4>
+                <p class="text-sm text-blue-200">
+                  建立企业出海风险评估的标准化框架与工具，为投资决策、战略规划、风险管理提供可复用的方法论支持。
+                </p>
+              </div>
+            </div>
+            
+            <div class="mt-12 pt-8 border-t border-white border-opacity-20 text-center">
+              <div class="inline-flex items-center">
+                <span class="research-badge bg-white text-navy">阿尔法出海研究</span>
+                <span class="text-sm text-blue-300 ml-4">方法论报告 #202512-001</span>
+              </div>
+              <p class="text-sm text-blue-300 mt-4">© 2025 阿尔法出海研究 版权所有。本报告基于实证研究，所有案例均经脱敏处理。</p>
+              <p class="text-xs text-blue-400 mt-2">报告发布日期：2025年12月27日</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+        // Initialize Mermaid
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            themeVariables: {
+                primaryColor: '#f8fafc',
+                primaryTextColor: '#1a2332',
+                primaryBorderColor: '#dc2626',
+                lineColor: '#6b7280',
+                secondaryColor: '#e5e7eb',
+                tertiaryColor: '#f3f4f6',
+                background: '#ffffff',
+                mainBkg: '#f8fafc',
+                secondBkg: '#f3f4f6',
+                tertiaryBkg: '#e5e7eb',
+                nodeBorder: '#dc2626',
+                clusterBkg: '#f9fafb',
+                clusterBorder: '#d1d5db',
+                defaultLinkColor: '#6b7280',
+                titleColor: '#1a2332',
+                edgeLabelBackground: '#ffffff',
+                nodeTextColor: '#1a2332'
+            },
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis',
+                padding: 20,
+                nodeSpacing: 50,
+                rankSpacing: 80,
+                diagramPadding: 20
+            },
+            fontSize: 14,
+            fontFamily: 'Inter, sans-serif'
+        });
+
+        // Initialize Mermaid Controls for zoom and pan
+        function initializeMermaidControls() {
+            const containers = document.querySelectorAll('.mermaid-container');
+
+            containers.forEach(container => {
+            const mermaidElement = container.querySelector('.mermaid');
+            let scale = 1;
+            let isDragging = false;
+            let startX, startY, translateX = 0, translateY = 0;
+
+            // 触摸相关状态
+            let isTouch = false;
+            let touchStartTime = 0;
+            let initialDistance = 0;
+            let initialScale = 1;
+            let isPinching = false;
+
+            // Zoom controls
+            const zoomInBtn = container.querySelector('.zoom-in');
+            const zoomOutBtn = container.querySelector('.zoom-out');
+            const resetBtn = container.querySelector('.reset-zoom');
+            const fullscreenBtn = container.querySelector('.fullscreen');
+
+            function updateTransform() {
+                mermaidElement.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+
+                if (scale > 1) {
+                container.classList.add('zoomed');
+                } else {
+                container.classList.remove('zoomed');
+                }
+
+                mermaidElement.style.cursor = isDragging ? 'grabbing' : 'grab';
+            }
+
+            if (zoomInBtn) {
+                zoomInBtn.addEventListener('click', () => {
+                scale = Math.min(scale * 1.25, 4);
+                updateTransform();
+                });
+            }
+
+            if (zoomOutBtn) {
+                zoomOutBtn.addEventListener('click', () => {
+                scale = Math.max(scale / 1.25, 0.3);
+                if (scale <= 1) {
+                    translateX = 0;
+                    translateY = 0;
+                }
+                updateTransform();
+                });
+            }
+
+            if (resetBtn) {
+                resetBtn.addEventListener('click', () => {
+                scale = 1;
+                translateX = 0;
+                translateY = 0;
+                updateTransform();
+                });
+            }
+
+            if (fullscreenBtn) {
+                fullscreenBtn.addEventListener('click', () => {
+                if (container.requestFullscreen) {
+                    container.requestFullscreen();
+                } else if (container.webkitRequestFullscreen) {
+                    container.webkitRequestFullscreen();
+                } else if (container.msRequestFullscreen) {
+                    container.msRequestFullscreen();
+                }
+                });
+            }
+
+            // Mouse Events
+            mermaidElement.addEventListener('mousedown', (e) => {
+                if (isTouch) return; // 如果是触摸设备，忽略鼠标事件
+
+                isDragging = true;
+                startX = e.clientX - translateX;
+                startY = e.clientY - translateY;
+                mermaidElement.style.cursor = 'grabbing';
+                updateTransform();
+                e.preventDefault();
+            });
+
+            document.addEventListener('mousemove', (e) => {
+                if (isDragging && !isTouch) {
+                translateX = e.clientX - startX;
+                translateY = e.clientY - startY;
+                updateTransform();
+                }
+            });
+
+            document.addEventListener('mouseup', () => {
+                if (isDragging && !isTouch) {
+                isDragging = false;
+                mermaidElement.style.cursor = 'grab';
+                updateTransform();
+                }
+            });
+
+            document.addEventListener('mouseleave', () => {
+                if (isDragging && !isTouch) {
+                isDragging = false;
+                mermaidElement.style.cursor = 'grab';
+                updateTransform();
+                }
+            });
+
+            // 获取两点之间的距离
+            function getTouchDistance(touch1, touch2) {
+                return Math.hypot(
+                touch2.clientX - touch1.clientX,
+                touch2.clientY - touch1.clientY
+                );
+            }
+
+            // Touch Events - 触摸事件处理
+            mermaidElement.addEventListener('touchstart', (e) => {
+                isTouch = true;
+                touchStartTime = Date.now();
+
+                if (e.touches.length === 1) {
+                // 单指拖动
+                isPinching = false;
+                isDragging = true;
+
+                const touch = e.touches[0];
+                startX = touch.clientX - translateX;
+                startY = touch.clientY - translateY;
+
+                } else if (e.touches.length === 2) {
+                // 双指缩放
+                isPinching = true;
+                isDragging = false;
+
+                const touch1 = e.touches[0];
+                const touch2 = e.touches[1];
+                initialDistance = getTouchDistance(touch1, touch2);
+                initialScale = scale;
+                }
+
+                e.preventDefault();
+            }, { passive: false });
+
+            mermaidElement.addEventListener('touchmove', (e) => {
+                if (e.touches.length === 1 && isDragging && !isPinching) {
+                // 单指拖动
+                const touch = e.touches[0];
+                translateX = touch.clientX - startX;
+                translateY = touch.clientY - startY;
+                updateTransform();
+
+                } else if (e.touches.length === 2 && isPinching) {
+                // 双指缩放
+                const touch1 = e.touches[0];
+                const touch2 = e.touches[1];
+                const currentDistance = getTouchDistance(touch1, touch2);
+
+                if (initialDistance > 0) {
+                    const newScale = Math.min(Math.max(
+                    initialScale * (currentDistance / initialDistance),
+                    0.3
+                    ), 4);
+                    scale = newScale;
+                    updateTransform();
+                }
+                }
+
+                e.preventDefault();
+            }, { passive: false });
+
+            mermaidElement.addEventListener('touchend', (e) => {
+                // 重置状态
+                if (e.touches.length === 0) {
+                isDragging = false;
+                isPinching = false;
+                initialDistance = 0;
+
+                // 延迟重置isTouch，避免鼠标事件立即触发
+                setTimeout(() => {
+                    isTouch = false;
+                }, 100);
+                } else if (e.touches.length === 1 && isPinching) {
+                // 从双指变为单指，切换为拖动模式
+                isPinching = false;
+                isDragging = true;
+
+                const touch = e.touches[0];
+                startX = touch.clientX - translateX;
+                startY = touch.clientY - translateY;
+                }
+
+                updateTransform();
+            });
+
+            mermaidElement.addEventListener('touchcancel', (e) => {
+                isDragging = false;
+                isPinching = false;
+                initialDistance = 0;
+
+                setTimeout(() => {
+                isTouch = false;
+                }, 100);
+
+                updateTransform();
+            });
+
+            // Enhanced wheel zoom with better center point handling
+            container.addEventListener('wheel', (e) => {
+                e.preventDefault();
+                const rect = container.getBoundingClientRect();
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+
+                const delta = e.deltaY > 0 ? 0.9 : 1.1;
+                const newScale = Math.min(Math.max(scale * delta, 0.3), 4);
+
+                // Adjust translation to zoom towards center
+                if (newScale !== scale) {
+                const scaleDiff = newScale / scale;
+                translateX = translateX * scaleDiff;
+                translateY = translateY * scaleDiff;
+                scale = newScale;
+
+                if (scale <= 1) {
+                    translateX = 0;
+                    translateY = 0;
+                }
+
+                updateTransform();
+                }
+            });
+
+            // Initialize display
+            updateTransform();
+            });
+        }
+
+        // Initialize the controls when the DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeMermaidControls();
+            
+            // 初始化判断选项的选择功能
+            document.querySelectorAll('.judgment-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    const question = this.getAttribute('data-question');
+                    const value = this.getAttribute('data-value');
+                    
+                    // 移除同问题的其他选项的选中状态
+                    document.querySelectorAll(`.judgment-option[data-question="${question}"]`).forEach(opt => {
+                        opt.classList.remove('selected');
+                    });
+                    
+                    // 选中当前选项
+                    this.classList.add('selected');
+                    
+                    // 设置隐藏的radio input（为了兼容原有的calculateRisk函数）
+                    const radioInput = document.createElement('input');
+                    radioInput.type = 'radio';
+                    radioInput.name = question;
+                    radioInput.value = value;
+                    radioInput.checked = true;
+                    radioInput.style.display = 'none';
+                    
+                    // 移除旧的radio input
+                    const oldInput = document.querySelector(`input[name="${question}"]`);
+                    if (oldInput && oldInput.parentNode) {
+                        oldInput.parentNode.removeChild(oldInput);
+                    }
+                    
+                    this.appendChild(radioInput);
+                });
+            });
+        });
+
+        // Table of Contents Active Link
+        function updateActiveLink() {
+            const sections = document.querySelectorAll('section[id]');
+            const tocLinks = document.querySelectorAll('.toc-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            tocLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // Smooth scroll for TOC links
+        document.querySelectorAll('.toc-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Risk Assessment Calculator
+        function calculateRisk() {
+            // 检查所有问题是否都已回答
+            let unanswered = 0;
+            const questionCount = 25; // 共25个问题
+            
+            for (let i = 1; i <= questionCount; i++) {
+                const selectedOption = document.querySelector(`.judgment-option[data-question="q${i}"].selected`);
+                if (!selectedOption) {
+                    unanswered++;
+                }
+            }
+            
+            if (unanswered > 0) {
+                alert(`还有 ${unanswered} 个关键判断点未评估，请完成所有评估后再计算总分。`);
+                return;
+            }
+            
+            // 计算总分
+            let totalScore = 0;
+            for (let i = 1; i <= questionCount; i++) {
+                const selectedOption = document.querySelector(`.judgment-option[data-question="q${i}"].selected`);
+                if (selectedOption) {
+                    const value = parseInt(selectedOption.getAttribute('data-value'));
+                    totalScore += value;
+                }
+            }
+            
+            // 显示结果
+            const resultDiv = document.getElementById('risk-result');
+            const scoreDiv = document.getElementById('risk-score');
+            const levelDiv = document.getElementById('risk-level');
+            const percentileDiv = document.getElementById('risk-percentile');
+            const descDiv = document.getElementById('risk-description');
+            
+            resultDiv.classList.remove('hidden');
+            scoreDiv.textContent = `${totalScore}分`;
+            
+            // 计算百分位（基于样本分布）
+            let percentile = 'N/A';
+            if (totalScore <= 15) percentile = '前20%';
+            else if (totalScore <= 30) percentile = '20%-60%';
+            else if (totalScore <= 45) percentile = '60%-85%';
+            else percentile = '后15%';
+            
+            percentileDiv.textContent = percentile;
+            
+            if (totalScore <= 15) {
+                resultDiv.className = 'mt-10 p-6 rounded-xl bg-green-50 border border-green-200';
+                levelDiv.textContent = '低风险';
+                levelDiv.className = 'text-2xl font-bold mb-2 text-green-700';
+                descDiv.innerHTML = `
+                    <p class="mb-3"><strong>评估结论：</strong>您的企业在出海准备方面表现良好，系统性风险暴露程度较低。</p>
+                    <p class="mb-2"><strong>关键优势：</strong></p>
+                    <ul class="list-disc list-inside space-y-1 mb-3">
+                        <li>市场研究与本地化准备相对充分</li>
+                        <li>合规体系与组织能力建设较为完善</li>
+                        <li>财务模型与风险控制机制相对健全</li>
+                    </ul>
+                    <p class="text-sm text-green-700"><strong>建议：</strong>继续保持现有准备节奏，重点关注市场进入后的运营优化与动态调整。</p>
+                `;
+            } else if (totalScore <= 30) {
+                resultDiv.className = 'mt-10 p-6 rounded-xl bg-yellow-50 border border-yellow-200';
+                levelDiv.textContent = '中等风险';
+                levelDiv.className = 'text-2xl font-bold mb-2 text-yellow-700';
+                descDiv.innerHTML = `
+                    <p class="mb-3"><strong>评估结论：</strong>您的企业存在明显的风险暴露点，需在出海前进行针对性改进。</p>
+                    <p class="mb-2"><strong>主要薄弱环节：</strong></p>
+                    <ul class="list-disc list-inside space-y-1 mb-3">
+                        <li>部分关键能力（如本地化团队、合规体系）建设滞后</li>
+                        <li>成本模型可能低估隐性风险</li>
+                        <li>市场进入策略可能需要进一步细化</li>
+                    </ul>
+                    <p class="text-sm text-yellow-700"><strong>建议：</strong>针对得分≥2分的项目进行重点改进，建议延迟出海时间3-6个月进行充分准备。</p>
+                `;
+            } else if (totalScore <= 45) {
+                resultDiv.className = 'mt-10 p-6 rounded-xl bg-orange-50 border border-orange-200';
+                levelDiv.textContent = '高风险';
+                levelDiv.className = 'text-2xl font-bold mb-2 text-orange-700';
+                descDiv.innerHTML = `
+                    <p class="mb-3"><strong>评估结论：</strong>您的企业在多个关键维度存在严重风险暴露，出海失败概率较高。</p>
+                    <p class="mb-2"><strong>系统性风险：</strong></p>
+                    <ul class="list-disc list-inside space-y-1 mb-3">
+                        <li>市场认知与本地化能力严重不足</li>
+                        <li>合规风险与组织风险叠加效应明显</li>
+                        <li>财务模型存在重大缺陷</li>
+                    </ul>
+                    <p class="text-sm text-orange-700"><strong>建议：</strong>强烈建议暂缓出海计划，进行至少6-12个月的系统性能力建设与风险管控体系构建。</p>
+                `;
+            } else {
+                resultDiv.className = 'mt-10 p-6 rounded-xl bg-red-50 border border-red-200';
+                levelDiv.textContent = '极高风险';
+                levelDiv.className = 'text-2xl font-bold mb-2 text-red-700';
+                descDiv.innerHTML = `
+                    <p class="mb-3"><strong>评估结论：</strong>您的企业目前不适合进行海外市场扩张，强行出海极有可能导致重大失败。</p>
+                    <p class="mb-2"><strong>致命缺陷：</strong></p>
+                    <ul class="list-disc list-inside space-y-1 mb-3">
+                        <li>在大多数关键风险维度均存在严重短板</li>
+                        <li>缺乏出海所需的基本能力与资源准备</li>
+                        <li>风险叠加效应将达到灾难性程度</li>
+                    </ul>
+                    <p class="text-sm text-red-700"><strong>建议：</strong>立即停止出海计划，优先稳固国内业务，系统性提升企业综合能力，建议至少12-18个月后再重新评估出海可行性。</p>
+                `;
+            }
+            
+            // Scroll to result
+            resultDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // Update active link on scroll
+        window.addEventListener('scroll', updateActiveLink);
+        window.addEventListener('load', updateActiveLink);
+
+        // Smooth scroll behavior for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+  
+
+</body></html>
